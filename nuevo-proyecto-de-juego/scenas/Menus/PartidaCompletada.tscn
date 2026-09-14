@@ -1,0 +1,170 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/Menus/PartidaCompletada.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/MenuPerzonalizado/FichaMediana.PNG" id="2_card"]
+[ext_resource type="FontFile" path="res://extra/fuentes/ShonenPunk custom bold.ttf" id="3_font"]
+[ext_resource type="Theme" path="res://assets/temas/PrincipalesMenus.tres" id="4_theme"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("3_font")
+font_size = 26
+font_color = Color(0.160784, 0.164706, 0.145098, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_key"]
+font = ExtResource("3_font")
+font_size = 18
+font_color = Color(0.160784, 0.164706, 0.145098, 0.8)
+
+[sub_resource type="LabelSettings" id="LabelSettings_val"]
+font = ExtResource("3_font")
+font_size = 18
+font_color = Color(0, 0.35, 0.1, 1)
+
+[node name="PartidaCompletada" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Overlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="CardContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -250.0
+offset_right = 240.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="CardContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_card")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CardContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 35.0
+offset_right = -40.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Title" type="Label" parent="CardContainer/VBoxContainer"]
+layout_mode = 2
+text = "PARTIDA FINALIZADA"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="CardContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 12
+columns = 2
+
+[node name="LblModo" type="Label" parent="CardContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Modo:"
+label_settings = SubResource("LabelSettings_key")
+
+[node name="LblModoVal" type="Label" parent="CardContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Practica"
+label_settings = SubResource("LabelSettings_val")
+
+[node name="LblDificultad" type="Label" parent="CardContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Dificultad:"
+label_settings = SubResource("LabelSettings_key")
+
+[node name="LblDificultadVal" type="Label" parent="CardContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Medio"
+label_settings = SubResource("LabelSettings_val")
+
+[node name="LblPuntuacion" type="Label" parent="CardContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Puntuacion:"
+label_settings = SubResource("LabelSettings_key")
+
+[node name="LblPuntuacionVal" type="Label" parent="CardContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_val")
+
+[node name="LblTiempo" type="Label" parent="CardContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Tiempo:"
+label_settings = SubResource("LabelSettings_key")
+
+[node name="LblTiempoVal" type="Label" parent="CardContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "00:00"
+label_settings = SubResource("LabelSettings_val")
+
+[node name="LblErrores" type="Label" parent="CardContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Errores:"
+label_settings = SubResource("LabelSettings_key")
+
+[node name="LblErroresVal" type="Label" parent="CardContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_val")
+
+[node name="LblSemilla" type="Label" parent="CardContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Semilla:"
+label_settings = SubResource("LabelSettings_key")
+
+[node name="LblSemillaVal" type="Label" parent="CardContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_val")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CardContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="BtnCopiar" type="Button" parent="CardContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(180, 50)
+layout_mode = 2
+theme = ExtResource("4_theme")
+theme_override_font_sizes/font_size = 20
+text = "Copiar Semilla"
+
+[node name="BtnContinuar" type="Button" parent="CardContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(180, 50)
+layout_mode = 2
+theme = ExtResource("4_theme")
+theme_override_font_sizes/font_size = 20
+text = "Continuar"

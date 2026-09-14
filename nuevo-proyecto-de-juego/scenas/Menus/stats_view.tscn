@@ -1,0 +1,218 @@
+[gd_scene format=3 uid="uid://2kkpv0u1w7g5"]
+
+[ext_resource type="Script" uid="uid://c83lxnjbgtf84" path="res://scripts/Menus/stats_view.gd" id="1_stats_view_gd"]
+[ext_resource type="Texture2D" uid="uid://7ve3uqfc5pgb" path="res://assets/newfondo.jpg" id="2_fondo"]
+[ext_resource type="Texture2D" uid="uid://d0i1h50x8if7o" path="res://assets/MenuPerzonalizado/FichaMediana.PNG" id="3_card"]
+[ext_resource type="LabelSettings" uid="uid://b5dtiadbgmr2w" path="res://assets/temas/label_blanco.tres" id="3_weaeu"]
+[ext_resource type="FontFile" uid="uid://c126k7dlusnb2" path="res://extra/fuentes/ShonenPunk custom bold.ttf" id="4_font"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sec_title"]
+font = ExtResource("4_font")
+font_size = 22
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_stats_lbl"]
+font = ExtResource("4_font")
+font_size = 18
+font_color = Color(0.1, 0.1, 0.1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_stats_val"]
+font = ExtResource("4_font")
+font_size = 15
+font_color = Color(0, 0.35, 0.1, 1)
+
+[node name="StatsView" type="Control" unique_id=521151092]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_stats_view_gd")
+
+[node name="Fondo" type="TextureRect" parent="." unique_id=1579286636]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fondo")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MainTitle" type="Label" parent="." unique_id=1472344940]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 30.0
+offset_right = 300.0
+offset_bottom = 80.0
+grow_horizontal = 2
+text = "Estadisticas del Jugador"
+label_settings = ExtResource("3_weaeu")
+horizontal_alignment = 1
+
+[node name="PanelStats" type="Panel" parent="." unique_id=821946839]
+clip_contents = true
+custom_minimum_size = Vector2(450, 420)
+layout_mode = 0
+offset_left = 80.0
+offset_top = 110.0
+offset_right = 530.0
+offset_bottom = 530.0
+
+[node name="FichaMediana" type="Sprite2D" parent="PanelStats" unique_id=1407724886]
+position = Vector2(225, 210)
+scale = Vector2(0.57, 0.5)
+texture = ExtResource("3_card")
+
+[node name="VBoxCumulative" type="VBoxContainer" parent="PanelStats" unique_id=608685512]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 25.0
+offset_right = -30.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="PanelStats/VBoxCumulative" unique_id=98123712]
+layout_mode = 2
+text = "Acumulado Historico"
+label_settings = SubResource("LabelSettings_sec_title")
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="PanelStats/VBoxCumulative" unique_id=83271928]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 12
+columns = 2
+
+[node name="Lbl1" type="Label" parent="PanelStats/VBoxCumulative/GridContainer" unique_id=1845388478]
+layout_mode = 2
+text = "Partidas Jugadas:"
+label_settings = SubResource("LabelSettings_stats_lbl")
+
+[node name="LblTotalGames" type="Label" parent="PanelStats/VBoxCumulative/GridContainer" unique_id=1178818498]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_stats_val")
+
+[node name="Lbl2" type="Label" parent="PanelStats/VBoxCumulative/GridContainer" unique_id=1126404752]
+layout_mode = 2
+text = "Tableros Resueltos:"
+label_settings = SubResource("LabelSettings_stats_lbl")
+
+[node name="LblBoardsCompleted" type="Label" parent="PanelStats/VBoxCumulative/GridContainer" unique_id=1829891644]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_stats_val")
+
+[node name="Lbl3" type="Label" parent="PanelStats/VBoxCumulative/GridContainer" unique_id=677959589]
+layout_mode = 2
+text = "Puntos Totales:"
+label_settings = SubResource("LabelSettings_stats_lbl")
+
+[node name="LblTotalScore" type="Label" parent="PanelStats/VBoxCumulative/GridContainer" unique_id=1990247391]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_stats_val")
+
+[node name="Lbl4" type="Label" parent="PanelStats/VBoxCumulative/GridContainer" unique_id=1942882306]
+layout_mode = 2
+text = "Tiempo Total de Juego:"
+label_settings = SubResource("LabelSettings_stats_lbl")
+
+[node name="LblTotalTime" type="Label" parent="PanelStats/VBoxCumulative/GridContainer" unique_id=1551537065]
+layout_mode = 2
+text = "0m 0s"
+label_settings = SubResource("LabelSettings_stats_val")
+
+[node name="Lbl5" type="Label" parent="PanelStats/VBoxCumulative/GridContainer" unique_id=2061616318]
+layout_mode = 2
+text = "Errores Cometidos:"
+label_settings = SubResource("LabelSettings_stats_lbl")
+
+[node name="LblTotalErrors" type="Label" parent="PanelStats/VBoxCumulative/GridContainer" unique_id=1760554283]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_stats_val")
+
+[node name="Lbl6" type="Label" parent="PanelStats/VBoxCumulative/GridContainer" unique_id=1487005197]
+layout_mode = 2
+text = "Promedio Errores/Partida:"
+label_settings = SubResource("LabelSettings_stats_lbl")
+
+[node name="LblAvgErrors" type="Label" parent="PanelStats/VBoxCumulative/GridContainer" unique_id=237335985]
+layout_mode = 2
+text = "0.0"
+label_settings = SubResource("LabelSettings_stats_val")
+
+[node name="Lbl7" type="Label" parent="PanelStats/VBoxCumulative/GridContainer" unique_id=1880843480]
+layout_mode = 2
+text = "Tasa de Victoria:"
+label_settings = SubResource("LabelSettings_stats_lbl")
+
+[node name="LblWinRate" type="Label" parent="PanelStats/VBoxCumulative/GridContainer" unique_id=1577439792]
+layout_mode = 2
+text = "0% (0/0)"
+label_settings = SubResource("LabelSettings_stats_val")
+
+[node name="PanelRecords" type="Panel" parent="." unique_id=821946840]
+clip_contents = true
+custom_minimum_size = Vector2(450, 420)
+layout_mode = 0
+offset_left = 622.0
+offset_top = 110.0
+offset_right = 1072.0
+offset_bottom = 530.0
+
+[node name="FichaMediana" type="Sprite2D" parent="PanelRecords" unique_id=1407724887]
+position = Vector2(225, 210)
+scale = Vector2(0.57, 0.5)
+texture = ExtResource("3_card")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelRecords" unique_id=92817238]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 70.0
+offset_right = -25.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxRecords" type="VBoxContainer" parent="PanelRecords/ScrollContainer" unique_id=72638219]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="PanelRecords" unique_id=98123713]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 25.0
+offset_right = 200.0
+offset_bottom = 60.0
+grow_horizontal = 2
+text = "Historial de Juegos"
+label_settings = SubResource("LabelSettings_sec_title")
+horizontal_alignment = 1
+
+[node name="BtnBack" type="Button" parent="." unique_id=83294820]
+layout_mode = 0
+offset_left = 486.0
+offset_top = 560.0
+offset_right = 666.0
+offset_bottom = 610.0
+text = "Volver"

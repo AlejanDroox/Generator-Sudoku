@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cmeoxs24dls65"]
+
+[ext_resource type="Script" uid="uid://dtlocstr4jn8g" path="res://scripts/Board/tablero_v_3.gd" id="1_mks46"]
+
+[node name="BoardV3" type="Node2D" unique_id=1528040014]
+script = ExtResource("1_mks46")
+cell_size = 16.0
+sector_gap = 4.0
+metadata/_edit_horizontal_guides_ = [1467.0]

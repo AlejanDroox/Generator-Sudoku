@@ -1,0 +1,727 @@
+[gd_scene format=3 uid="uid://bcsdh2t8ei4rg"]
+
+[ext_resource type="Texture2D" uid="uid://7ve3uqfc5pgb" path="res://assets/newfondo.jpg" id="1_d6bj3"]
+[ext_resource type="Texture2D" uid="uid://li2435afpd0y" path="res://assets/ui_leard_board/left_arrow.PNG" id="3_3eo4k"]
+[ext_resource type="FontFile" uid="uid://c126k7dlusnb2" path="res://extra/fuentes/ShonenPunk custom bold.ttf" id="4_1bqbj"]
+[ext_resource type="Texture2D" uid="uid://cqxbymdy06yds" path="res://assets/ui_leard_board/arrow_right.PNG" id="4_8q5f0"]
+[ext_resource type="LabelSettings" uid="uid://b5dtiadbgmr2w" path="res://assets/temas/label_blanco.tres" id="4_mp6tt"]
+[ext_resource type="Texture2D" uid="uid://7gbov4wqh4af" path="res://assets/icons/arrow.PNG" id="5_8we8p"]
+[ext_resource type="LabelSettings" uid="uid://dq45j0f7fu07b" path="res://assets/temas/titulo_board.tres" id="5_g3y5g"]
+[ext_resource type="LabelSettings" uid="uid://cgnlderos5uhn" path="res://assets/temas/datos_leaderboard.tres" id="6_6svrr"]
+[ext_resource type="Texture2D" uid="uid://6lwvbapas7th" path="res://assets/icons/killer.PNG" id="6_hlxuy"]
+[ext_resource type="Texture2D" uid="uid://cbbvs01xw73yl" path="res://assets/icons/termometro.PNG" id="7_030x8"]
+[ext_resource type="Texture2D" uid="uid://baxdvj7570l1" path="res://assets/icons/knight_idle0000.png" id="7_axfk2"]
+[ext_resource type="Texture2D" uid="uid://c0u0te6876v2" path="res://assets/MenuPerzonalizado/flecha.PNG" id="7_wgkd7"]
+[ext_resource type="Texture2D" uid="uid://d0i1h50x8if7o" path="res://assets/MenuPerzonalizado/FichaMediana.PNG" id="8_ficha_mediana"]
+[ext_resource type="Script" uid="uid://4b7qw8gw8rdn" path="res://scripts/leaderboard.gd" id="script_lb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gqr27"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1bqbj"]
+font = ExtResource("4_1bqbj")
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("4_1bqbj")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[node name="leaderboard" type="Node2D" unique_id=1913907106]
+script = ExtResource("script_lb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=874758254]
+position = Vector2(572.94763, 338.3744)
+rotation = 1.5707964
+scale = Vector2(0.64129007, 0.9281664)
+texture = ExtResource("1_d6bj3")
+
+[node name="Control" type="Control" parent="." unique_id=2080518706]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 1151.0
+offset_bottom = 646.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=858032415]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -2.0
+offset_right = 1149.0
+offset_bottom = 646.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=1538410677]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Titulo" type="Label" parent="Control/VBoxContainer/HBoxContainer" unique_id=93042061]
+layout_mode = 2
+text = "CLasificaciones
+"
+label_settings = ExtResource("4_mp6tt")
+
+[node name="Cabezeras" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=549320210]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 42
+
+[node name="modo" type="Label" parent="Control/VBoxContainer/Cabezeras" unique_id=1755691670]
+layout_mode = 2
+text = "Modo"
+label_settings = ExtResource("5_g3y5g")
+
+[node name="Nombre" type="Label" parent="Control/VBoxContainer/Cabezeras" unique_id=2147065759]
+layout_mode = 2
+text = "Nombre"
+label_settings = ExtResource("5_g3y5g")
+
+[node name="Dificultad" type="Label" parent="Control/VBoxContainer/Cabezeras" unique_id=1558753997]
+layout_mode = 2
+text = "Dificultad"
+label_settings = ExtResource("5_g3y5g")
+
+[node name="Variantes" type="Label" parent="Control/VBoxContainer/Cabezeras" unique_id=1713437806]
+layout_mode = 2
+text = "variantes"
+label_settings = ExtResource("5_g3y5g")
+
+[node name="puntuacio" type="Label" parent="Control/VBoxContainer/Cabezeras" unique_id=2049124922]
+layout_mode = 2
+text = "puntuacion"
+label_settings = ExtResource("5_g3y5g")
+
+[node name="tiempo" type="Label" parent="Control/VBoxContainer/Cabezeras" unique_id=1338973712]
+layout_mode = 2
+text = "tiempo"
+label_settings = ExtResource("5_g3y5g")
+
+[node name="tableros" type="Label" parent="Control/VBoxContainer/Cabezeras" unique_id=298419762]
+layout_mode = 2
+text = "nr_tableros"
+label_settings = ExtResource("5_g3y5g")
+
+[node name="grupo" type="Label" parent="Control/VBoxContainer/Cabezeras" unique_id=1340313281]
+layout_mode = 2
+text = "grupo"
+label_settings = ExtResource("5_g3y5g")
+
+[node name="show_score" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=1914974231]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 42
+
+[node name="modo" type="Label" parent="Control/VBoxContainer/show_score" unique_id=143045391]
+layout_mode = 2
+text = "modo"
+label_settings = ExtResource("6_6svrr")
+
+[node name="Nombre" type="Label" parent="Control/VBoxContainer/show_score" unique_id=2128940360]
+layout_mode = 2
+text = "Nombre"
+label_settings = ExtResource("6_6svrr")
+
+[node name="Dificultad" type="Label" parent="Control/VBoxContainer/show_score" unique_id=1226984051]
+layout_mode = 2
+text = "Dificultad"
+label_settings = ExtResource("6_6svrr")
+
+[node name="variantes" type="PanelContainer" parent="Control/VBoxContainer/show_score" unique_id=629338382]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gqr27")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer/show_score/variantes" unique_id=1309786168]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="knight" type="TextureRect" parent="Control/VBoxContainer/show_score/variantes/HBoxContainer" unique_id=987018268]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("7_axfk2")
+expand_mode = 3
+
+[node name="termo" type="TextureRect" parent="Control/VBoxContainer/show_score/variantes/HBoxContainer" unique_id=148544472]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("7_030x8")
+expand_mode = 3
+
+[node name="killer" type="TextureRect" parent="Control/VBoxContainer/show_score/variantes/HBoxContainer" unique_id=231717147]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("6_hlxuy")
+expand_mode = 3
+
+[node name="arrow" type="TextureRect" parent="Control/VBoxContainer/show_score/variantes/HBoxContainer" unique_id=82665765]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("5_8we8p")
+expand_mode = 3
+
+[node name="puntuacio" type="Label" parent="Control/VBoxContainer/show_score" unique_id=1594482554]
+layout_mode = 2
+text = "puntuacion"
+label_settings = ExtResource("6_6svrr")
+
+[node name="tiempo" type="Label" parent="Control/VBoxContainer/show_score" unique_id=126604798]
+layout_mode = 2
+text = "tiempo"
+label_settings = ExtResource("6_6svrr")
+
+[node name="tableros" type="Label" parent="Control/VBoxContainer/show_score" unique_id=44760015]
+layout_mode = 2
+text = "nr_tableros"
+label_settings = ExtResource("6_6svrr")
+
+[node name="grupo" type="Label" parent="Control/VBoxContainer/show_score" unique_id=206454451]
+layout_mode = 2
+text = "grupo"
+label_settings = ExtResource("5_g3y5g")
+
+[node name="show_score2" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=945007120]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 42
+
+[node name="modo" type="Label" parent="Control/VBoxContainer/show_score2" unique_id=1084871857]
+layout_mode = 2
+text = "Nro"
+label_settings = ExtResource("6_6svrr")
+
+[node name="Nombre" type="Label" parent="Control/VBoxContainer/show_score2" unique_id=384129655]
+layout_mode = 2
+text = "Nombre"
+label_settings = ExtResource("6_6svrr")
+
+[node name="Dificultad" type="Label" parent="Control/VBoxContainer/show_score2" unique_id=1338562918]
+layout_mode = 2
+text = "Dificultad"
+label_settings = ExtResource("6_6svrr")
+
+[node name="variantes" type="PanelContainer" parent="Control/VBoxContainer/show_score2" unique_id=1007744288]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gqr27")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer/show_score2/variantes" unique_id=603258750]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="knight" type="TextureRect" parent="Control/VBoxContainer/show_score2/variantes/HBoxContainer" unique_id=312076280]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("7_axfk2")
+expand_mode = 3
+
+[node name="termo" type="TextureRect" parent="Control/VBoxContainer/show_score2/variantes/HBoxContainer" unique_id=1356791046]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("7_030x8")
+expand_mode = 3
+
+[node name="killer" type="TextureRect" parent="Control/VBoxContainer/show_score2/variantes/HBoxContainer" unique_id=883954521]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("6_hlxuy")
+expand_mode = 3
+
+[node name="arrow" type="TextureRect" parent="Control/VBoxContainer/show_score2/variantes/HBoxContainer" unique_id=568437928]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("5_8we8p")
+expand_mode = 3
+
+[node name="puntuacio" type="Label" parent="Control/VBoxContainer/show_score2" unique_id=250470368]
+layout_mode = 2
+text = "puntuacion"
+label_settings = ExtResource("6_6svrr")
+
+[node name="tiempo" type="Label" parent="Control/VBoxContainer/show_score2" unique_id=1725694489]
+layout_mode = 2
+text = "tiempo"
+label_settings = ExtResource("6_6svrr")
+
+[node name="tableros" type="Label" parent="Control/VBoxContainer/show_score2" unique_id=1465460697]
+layout_mode = 2
+text = "nr_tableros"
+label_settings = ExtResource("6_6svrr")
+
+[node name="grupo" type="Label" parent="Control/VBoxContainer/show_score2" unique_id=382859253]
+layout_mode = 2
+text = "grupo"
+label_settings = ExtResource("5_g3y5g")
+
+[node name="show_score3" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=937033596]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 42
+
+[node name="modo" type="Label" parent="Control/VBoxContainer/show_score3" unique_id=861080974]
+layout_mode = 2
+text = "Nro"
+label_settings = ExtResource("6_6svrr")
+
+[node name="Nombre" type="Label" parent="Control/VBoxContainer/show_score3" unique_id=1747253156]
+layout_mode = 2
+text = "Nombre"
+label_settings = ExtResource("6_6svrr")
+
+[node name="Dificultad" type="Label" parent="Control/VBoxContainer/show_score3" unique_id=1559640374]
+layout_mode = 2
+text = "Dificultad"
+label_settings = ExtResource("6_6svrr")
+
+[node name="variantes" type="PanelContainer" parent="Control/VBoxContainer/show_score3" unique_id=207752270]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gqr27")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer/show_score3/variantes" unique_id=1138524250]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="knight" type="TextureRect" parent="Control/VBoxContainer/show_score3/variantes/HBoxContainer" unique_id=428375787]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("7_axfk2")
+expand_mode = 3
+
+[node name="termo" type="TextureRect" parent="Control/VBoxContainer/show_score3/variantes/HBoxContainer" unique_id=2036811442]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("7_030x8")
+expand_mode = 3
+
+[node name="killer" type="TextureRect" parent="Control/VBoxContainer/show_score3/variantes/HBoxContainer" unique_id=846375725]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("6_hlxuy")
+expand_mode = 3
+
+[node name="arrow" type="TextureRect" parent="Control/VBoxContainer/show_score3/variantes/HBoxContainer" unique_id=1070326619]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("5_8we8p")
+expand_mode = 3
+
+[node name="puntuacio" type="Label" parent="Control/VBoxContainer/show_score3" unique_id=755440290]
+layout_mode = 2
+text = "puntuacion"
+label_settings = ExtResource("6_6svrr")
+
+[node name="tiempo" type="Label" parent="Control/VBoxContainer/show_score3" unique_id=1244882523]
+layout_mode = 2
+text = "tiempo"
+label_settings = ExtResource("6_6svrr")
+
+[node name="tableros" type="Label" parent="Control/VBoxContainer/show_score3" unique_id=1241390644]
+layout_mode = 2
+text = "nr_tableros"
+label_settings = ExtResource("6_6svrr")
+
+[node name="grupo" type="Label" parent="Control/VBoxContainer/show_score3" unique_id=1659750003]
+layout_mode = 2
+text = "grupo"
+label_settings = ExtResource("5_g3y5g")
+
+[node name="show_score4" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=42195576]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 42
+
+[node name="modo" type="Label" parent="Control/VBoxContainer/show_score4" unique_id=925511466]
+layout_mode = 2
+text = "Nro"
+label_settings = ExtResource("6_6svrr")
+
+[node name="Nombre" type="Label" parent="Control/VBoxContainer/show_score4" unique_id=1339329264]
+layout_mode = 2
+text = "Nombre"
+label_settings = ExtResource("6_6svrr")
+
+[node name="Dificultad" type="Label" parent="Control/VBoxContainer/show_score4" unique_id=6021890]
+layout_mode = 2
+text = "Dificultad"
+label_settings = ExtResource("6_6svrr")
+
+[node name="variantes" type="PanelContainer" parent="Control/VBoxContainer/show_score4" unique_id=1784270818]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gqr27")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer/show_score4/variantes" unique_id=386052046]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="knight" type="TextureRect" parent="Control/VBoxContainer/show_score4/variantes/HBoxContainer" unique_id=2109704937]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("7_axfk2")
+expand_mode = 3
+
+[node name="termo" type="TextureRect" parent="Control/VBoxContainer/show_score4/variantes/HBoxContainer" unique_id=339196360]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("7_030x8")
+expand_mode = 3
+
+[node name="killer" type="TextureRect" parent="Control/VBoxContainer/show_score4/variantes/HBoxContainer" unique_id=857829487]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("6_hlxuy")
+expand_mode = 3
+
+[node name="arrow" type="TextureRect" parent="Control/VBoxContainer/show_score4/variantes/HBoxContainer" unique_id=1831817323]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("5_8we8p")
+expand_mode = 3
+
+[node name="puntuacio" type="Label" parent="Control/VBoxContainer/show_score4" unique_id=2140256932]
+layout_mode = 2
+text = "puntuacion"
+label_settings = ExtResource("6_6svrr")
+
+[node name="tiempo" type="Label" parent="Control/VBoxContainer/show_score4" unique_id=1587714193]
+layout_mode = 2
+text = "tiempo"
+label_settings = ExtResource("6_6svrr")
+
+[node name="tableros" type="Label" parent="Control/VBoxContainer/show_score4" unique_id=958815576]
+layout_mode = 2
+text = "nr_tableros"
+label_settings = ExtResource("6_6svrr")
+
+[node name="grupo" type="Label" parent="Control/VBoxContainer/show_score4" unique_id=1550441562]
+layout_mode = 2
+text = "grupo"
+label_settings = ExtResource("5_g3y5g")
+
+[node name="show_score5" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=5143535]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 42
+
+[node name="modo" type="Label" parent="Control/VBoxContainer/show_score5" unique_id=618844938]
+layout_mode = 2
+text = "Nro"
+label_settings = ExtResource("6_6svrr")
+
+[node name="Nombre" type="Label" parent="Control/VBoxContainer/show_score5" unique_id=1488465495]
+layout_mode = 2
+text = "Nombre"
+label_settings = ExtResource("6_6svrr")
+
+[node name="Dificultad" type="Label" parent="Control/VBoxContainer/show_score5" unique_id=246166020]
+layout_mode = 2
+text = "Dificultad"
+label_settings = ExtResource("6_6svrr")
+
+[node name="variantes" type="PanelContainer" parent="Control/VBoxContainer/show_score5" unique_id=723696527]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gqr27")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer/show_score5/variantes" unique_id=871023958]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="knight" type="TextureRect" parent="Control/VBoxContainer/show_score5/variantes/HBoxContainer" unique_id=1770609891]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("7_axfk2")
+expand_mode = 3
+
+[node name="termo" type="TextureRect" parent="Control/VBoxContainer/show_score5/variantes/HBoxContainer" unique_id=614322609]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("7_030x8")
+expand_mode = 3
+
+[node name="killer" type="TextureRect" parent="Control/VBoxContainer/show_score5/variantes/HBoxContainer" unique_id=570693]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("6_hlxuy")
+expand_mode = 3
+
+[node name="arrow" type="TextureRect" parent="Control/VBoxContainer/show_score5/variantes/HBoxContainer" unique_id=1333288913]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("5_8we8p")
+expand_mode = 3
+
+[node name="puntuacio" type="Label" parent="Control/VBoxContainer/show_score5" unique_id=2053696270]
+layout_mode = 2
+text = "puntuacion"
+label_settings = ExtResource("6_6svrr")
+
+[node name="tiempo" type="Label" parent="Control/VBoxContainer/show_score5" unique_id=903099198]
+layout_mode = 2
+text = "tiempo"
+label_settings = ExtResource("6_6svrr")
+
+[node name="tableros" type="Label" parent="Control/VBoxContainer/show_score5" unique_id=1817177756]
+layout_mode = 2
+text = "nr_tableros"
+label_settings = ExtResource("6_6svrr")
+
+[node name="grupo" type="Label" parent="Control/VBoxContainer/show_score5" unique_id=1936895335]
+layout_mode = 2
+text = "grupo"
+label_settings = ExtResource("5_g3y5g")
+
+[node name="lbl_page" type="Label" parent="Control/VBoxContainer" unique_id=112233445]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Pagina 1 de 1"
+label_settings = SubResource("LabelSettings_1bqbj")
+horizontal_alignment = 1
+
+[node name="lbl_total" type="Label" parent="Control/VBoxContainer" unique_id=556677889]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=1719128065]
+layout_mode = 2
+alignment = 1
+
+[node name="left" type="Button" parent="Control/VBoxContainer/HBoxContainer2" unique_id=1897008164]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("3_3eo4k")
+flat = true
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Control/VBoxContainer/HBoxContainer2" unique_id=36841043]
+layout_mode = 2
+stretch_mode = 0
+
+[node name="right" type="Button" parent="Control/VBoxContainer/HBoxContainer2" unique_id=1086939116]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("4_8q5f0")
+flat = true
+
+[node name="back" type="Button" parent="Control" unique_id=609879841]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 526.0
+offset_right = 236.0
+offset_bottom = 643.0
+icon = ExtResource("7_wgkd7")
+flat = true
+
+[node name="btn_filter_toggle" type="Button" parent="Control" unique_id=375820846]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 969.0
+offset_top = 19.0
+offset_right = 1124.0
+offset_bottom = 119.0
+text = "Filtrar"
+
+[node name="FilterPanel" type="Control" parent="Control" unique_id=48293021]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -260.0
+offset_right = 225.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FichaMediana" type="Sprite2D" parent="Control/FilterPanel" unique_id=48293022]
+position = Vector2(225, 260)
+scale = Vector2(0.57, 0.62)
+texture = ExtResource("8_ficha_mediana")
+
+[node name="VBox" type="VBoxContainer" parent="Control/FilterPanel" unique_id=48293023]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = 35.0
+offset_right = -35.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="Titulo" type="Label" parent="Control/FilterPanel/VBox" unique_id=48293024]
+layout_mode = 2
+text = "FILTROS Y ORDENACION"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Control/FilterPanel/VBox" unique_id=48293025]
+layout_mode = 2
+
+[node name="RowMode" type="HBoxContainer" parent="Control/FilterPanel/VBox" unique_id=48293027]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LblMode" type="Label" parent="Control/FilterPanel/VBox/RowMode" unique_id=48293028]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+text = "Modo:"
+label_settings = ExtResource("6_6svrr")
+
+[node name="OptMode" type="OptionButton" parent="Control/FilterPanel/VBox/RowMode" unique_id=48293029]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_1bqbj")
+
+[node name="RowDiff" type="HBoxContainer" parent="Control/FilterPanel/VBox" unique_id=48293030]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LblDiff" type="Label" parent="Control/FilterPanel/VBox/RowDiff" unique_id=48293031]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+text = "Dificultad:"
+label_settings = ExtResource("6_6svrr")
+
+[node name="OptDiff" type="OptionButton" parent="Control/FilterPanel/VBox/RowDiff" unique_id=48293032]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_1bqbj")
+
+[node name="RowGroup" type="HBoxContainer" parent="Control/FilterPanel/VBox" unique_id=48293033]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LblGroup" type="Label" parent="Control/FilterPanel/VBox/RowGroup" unique_id=48293034]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+text = "Grupo:"
+label_settings = ExtResource("6_6svrr")
+
+[node name="OptGroup" type="OptionButton" parent="Control/FilterPanel/VBox/RowGroup" unique_id=48293035]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_1bqbj")
+
+[node name="RowSort" type="HBoxContainer" parent="Control/FilterPanel/VBox" unique_id=48293036]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LblSort" type="Label" parent="Control/FilterPanel/VBox/RowSort" unique_id=48293037]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+text = "Ordenar por:"
+label_settings = ExtResource("6_6svrr")
+
+[node name="OptSort" type="OptionButton" parent="Control/FilterPanel/VBox/RowSort" unique_id=48293038]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_1bqbj")
+
+[node name="RowVariants" type="HBoxContainer" parent="Control/FilterPanel/VBox" unique_id=48293039]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LblVariants" type="Label" parent="Control/FilterPanel/VBox/RowVariants" unique_id=48293040]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+text = "Variantes:"
+label_settings = ExtResource("6_6svrr")
+
+[node name="Grid" type="GridContainer" parent="Control/FilterPanel/VBox/RowVariants" unique_id=48293041]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+
+[node name="ChkKnight" type="CheckBox" parent="Control/FilterPanel/VBox/RowVariants/Grid" unique_id=48293042]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_1bqbj")
+text = "Caballo"
+
+[node name="ChkTermo" type="CheckBox" parent="Control/FilterPanel/VBox/RowVariants/Grid" unique_id=48293043]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_1bqbj")
+text = "Termo"
+
+[node name="ChkKiller" type="CheckBox" parent="Control/FilterPanel/VBox/RowVariants/Grid" unique_id=48293044]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_1bqbj")
+text = "Killer"
+
+[node name="ChkArrow" type="CheckBox" parent="Control/FilterPanel/VBox/RowVariants/Grid" unique_id=48293045]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_1bqbj")
+text = "Flecha"
+
+[node name="Spacer" type="Control" parent="Control/FilterPanel/VBox" unique_id=48293046]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Actions" type="HBoxContainer" parent="Control/FilterPanel/VBox" unique_id=48293047]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="BtnClear" type="Button" parent="Control/FilterPanel/VBox/Actions" unique_id=48293048]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_1bqbj")
+text = "Limpiar"
+
+[node name="BtnApply" type="Button" parent="Control/FilterPanel/VBox/Actions" unique_id=48293049]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_1bqbj")
+text = "Aplicar"
+
+[node name="BtnClose" type="Button" parent="Control/FilterPanel/VBox/Actions" unique_id=48293050]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_1bqbj")
+text = "Cerrar"
+
+[connection signal="pressed" from="Control/back" to="." method="_on_back_pressed"]

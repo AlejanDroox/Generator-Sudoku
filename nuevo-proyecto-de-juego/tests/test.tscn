@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dbt23vc1d76wd"]
+
+[ext_resource type="Script" uid="uid://csjeum0xgcuc8" path="res://scripts/CoreSudoku/SudokuLogic.gd" id="1_37kl0"]
+
+[node name="Test" type="Node2D" unique_id=887850630]
+script = ExtResource("1_37kl0")

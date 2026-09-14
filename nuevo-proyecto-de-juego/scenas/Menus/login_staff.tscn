@@ -1,0 +1,629 @@
+[gd_scene format=3 uid="uid://c6k2w4l1ulfp4"]
+
+[ext_resource type="Script" uid="uid://b5hq7ploycqs1" path="res://scripts/Menus/login_staff.gd" id="1_login_gd"]
+[ext_resource type="Texture2D" uid="uid://7ve3uqfc5pgb" path="res://assets/newfondo.jpg" id="2_fondo"]
+[ext_resource type="Texture2D" uid="uid://d0i1h50x8if7o" path="res://assets/MenuPerzonalizado/FichaMediana.PNG" id="3_3svqq"]
+[ext_resource type="FontFile" uid="uid://c126k7dlusnb2" path="res://extra/fuentes/ShonenPunk custom bold.ttf" id="3_font"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_style"]
+font = ExtResource("3_font")
+font_size = 18
+font_color = Color(0.941176, 0.941176, 0.941176, 1)
+
+[node name="LoginStaff" type="Control" unique_id=521151090]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_login_gd")
+
+[node name="Fondo" type="TextureRect" parent="." unique_id=1579286634]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fondo")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="LoginPanel" type="Panel" parent="." unique_id=821946837]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(450, 360)
+layout_mode = 0
+offset_left = 351.0
+offset_top = 144.0
+offset_right = 801.0
+offset_bottom = 504.0
+
+[node name="FichaMediana" type="Sprite2D" parent="LoginPanel" unique_id=1407724884]
+position = Vector2(197.29916, 210.50002)
+scale = Vector2(0.5031381, 0.50313807)
+texture = ExtResource("3_3svqq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoginPanel" unique_id=608685510]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Title" type="Label" parent="LoginPanel/VBoxContainer" unique_id=1472344938]
+layout_mode = 2
+text = "Acceso Staff"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="EmailInput" type="LineEdit" parent="LoginPanel/VBoxContainer" unique_id=1564984463]
+layout_mode = 2
+placeholder_text = "Correo electrónico"
+
+[node name="PasswordInput" type="LineEdit" parent="LoginPanel/VBoxContainer" unique_id=423308294]
+layout_mode = 2
+placeholder_text = "Contraseña"
+secret = true
+
+[node name="BtnLogin" type="Button" parent="LoginPanel/VBoxContainer" unique_id=123551607]
+layout_mode = 2
+text = "Iniciar Sesión"
+
+[node name="BtnBack" type="Button" parent="LoginPanel/VBoxContainer" unique_id=371917193]
+layout_mode = 2
+text = "Volver"
+
+[node name="ChangePasswordPanel" type="Panel" parent="." unique_id=727302698]
+visible = false
+custom_minimum_size = Vector2(450, 360)
+layout_mode = 0
+offset_left = 351.0
+offset_top = 700.0
+offset_right = 801.0
+offset_bottom = 1060.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChangePasswordPanel" unique_id=216182590]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Title" type="Label" parent="ChangePasswordPanel/VBoxContainer" unique_id=1903842192]
+layout_mode = 2
+text = "Actualizar Contraseña"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="NewPasswordInput" type="LineEdit" parent="ChangePasswordPanel/VBoxContainer" unique_id=520528403]
+layout_mode = 2
+placeholder_text = "Nueva contraseña (mín. 8)"
+secret = true
+
+[node name="ConfirmPasswordInput" type="LineEdit" parent="ChangePasswordPanel/VBoxContainer" unique_id=897926108]
+layout_mode = 2
+placeholder_text = "Confirmar contraseña"
+secret = true
+
+[node name="BtnConfirmChange" type="Button" parent="ChangePasswordPanel/VBoxContainer" unique_id=1603553475]
+layout_mode = 2
+text = "Confirmar y Entrar"
+
+[node name="DashboardPanel" type="Panel" parent="." unique_id=1867283862]
+custom_minimum_size = Vector2(450, 360)
+layout_mode = 0
+offset_left = 351.0
+offset_top = -450.0
+offset_right = 801.0
+offset_bottom = -90.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DashboardPanel" unique_id=517289055]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Title" type="Label" parent="DashboardPanel/VBoxContainer" unique_id=1592130610]
+layout_mode = 2
+text = "Gestión Administrativa"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="DashboardPanel/VBoxContainer" unique_id=1056164327]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+columns = 2
+
+[node name="StaticName" type="Label" parent="DashboardPanel/VBoxContainer/GridContainer" unique_id=1749015662]
+layout_mode = 2
+text = "Nombre:"
+
+[node name="LblUserName" type="Label" parent="DashboardPanel/VBoxContainer/GridContainer" unique_id=1888802548]
+layout_mode = 2
+text = "..."
+
+[node name="StaticRole" type="Label" parent="DashboardPanel/VBoxContainer/GridContainer" unique_id=923469032]
+layout_mode = 2
+text = "Rol:"
+
+[node name="LblUserRole" type="Label" parent="DashboardPanel/VBoxContainer/GridContainer" unique_id=80081101]
+layout_mode = 2
+text = "..."
+
+[node name="StaticId" type="Label" parent="DashboardPanel/VBoxContainer/GridContainer" unique_id=1569819124]
+visible = false
+layout_mode = 2
+text = "ID:"
+label_settings = SubResource("LabelSettings_style")
+
+[node name="LblUserId" type="Label" parent="DashboardPanel/VBoxContainer/GridContainer" unique_id=1209793398]
+visible = false
+layout_mode = 2
+text = "..."
+label_settings = SubResource("LabelSettings_style")
+
+[node name="HSeparator" type="HSeparator" parent="DashboardPanel/VBoxContainer" unique_id=1198140490]
+layout_mode = 2
+
+[node name="HBoxCreate" type="HBoxContainer" parent="DashboardPanel/VBoxContainer" unique_id=1444895244]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="BtnShowCreateTeacher" type="Button" parent="DashboardPanel/VBoxContainer/HBoxCreate" unique_id=465296175]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+ Prof"
+
+[node name="BtnShowCreateGroup" type="Button" parent="DashboardPanel/VBoxContainer/HBoxCreate" unique_id=155846698]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+ Grupo"
+
+[node name="BtnShowCreateStudent" type="Button" parent="DashboardPanel/VBoxContainer/HBoxCreate" unique_id=1140170216]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+ Alum"
+
+[node name="HBoxManage" type="HBoxContainer" parent="DashboardPanel/VBoxContainer" unique_id=1349440569]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="BtnManageTeachers" type="Button" parent="DashboardPanel/VBoxContainer/HBoxManage" unique_id=826516009]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ver Profs"
+
+[node name="BtnManageGroups" type="Button" parent="DashboardPanel/VBoxContainer/HBoxManage" unique_id=350536714]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ver Grupos"
+
+[node name="BtnManageStudents" type="Button" parent="DashboardPanel/VBoxContainer/HBoxManage" unique_id=862010045]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ver Alums"
+
+[node name="BtnLogout" type="Button" parent="DashboardPanel/VBoxContainer" unique_id=1117410211]
+layout_mode = 2
+text = "Cerrar Sesión"
+
+[node name="BtnBackToMenu" type="Button" parent="DashboardPanel/VBoxContainer" unique_id=1117410212]
+layout_mode = 2
+text = "Volver al Menú (Mantener Sesión)"
+
+[node name="BtnGoToReports" type="Button" parent="DashboardPanel/VBoxContainer" unique_id=109148802]
+layout_mode = 2
+text = "Generacion De Reportes"
+
+[node name="CreateTeacherPanel" type="Panel" parent="." unique_id=2039270448]
+visible = false
+custom_minimum_size = Vector2(450, 360)
+layout_mode = 0
+offset_left = 351.0
+offset_top = 700.0
+offset_right = 801.0
+offset_bottom = 1060.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreateTeacherPanel" unique_id=375497048]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Title" type="Label" parent="CreateTeacherPanel/VBoxContainer" unique_id=1223216840]
+layout_mode = 2
+text = "Crear Profesor"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="EmailInput" type="LineEdit" parent="CreateTeacherPanel/VBoxContainer" unique_id=1347723367]
+layout_mode = 2
+placeholder_text = "Email"
+
+[node name="PasswordInput" type="LineEdit" parent="CreateTeacherPanel/VBoxContainer" unique_id=1891539720]
+layout_mode = 2
+placeholder_text = "Contraseña Temporal"
+secret = true
+
+[node name="NameInput" type="LineEdit" parent="CreateTeacherPanel/VBoxContainer" unique_id=136114011]
+layout_mode = 2
+placeholder_text = "Nombre Completo"
+
+[node name="BtnCreateTeacher" type="Button" parent="CreateTeacherPanel/VBoxContainer" unique_id=1741803410]
+layout_mode = 2
+text = "Registrar"
+
+[node name="BtnCancelTeacher" type="Button" parent="CreateTeacherPanel/VBoxContainer" unique_id=408015337]
+layout_mode = 2
+text = "Cancelar"
+
+[node name="CreateGroupPanel" type="Panel" parent="." unique_id=1835562296]
+visible = false
+custom_minimum_size = Vector2(450, 360)
+layout_mode = 0
+offset_left = 351.0
+offset_top = 700.0
+offset_right = 801.0
+offset_bottom = 1060.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreateGroupPanel" unique_id=187704304]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Title" type="Label" parent="CreateGroupPanel/VBoxContainer" unique_id=1395828179]
+layout_mode = 2
+text = "Crear Grupo"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="CodeInput" type="LineEdit" parent="CreateGroupPanel/VBoxContainer" unique_id=2139129195]
+layout_mode = 2
+placeholder_text = "Código de Grupo (máx 10)"
+
+[node name="TeacherInput" type="OptionButton" parent="CreateGroupPanel/VBoxContainer" unique_id=1241024970]
+layout_mode = 2
+
+[node name="BtnCreateGroup" type="Button" parent="CreateGroupPanel/VBoxContainer" unique_id=1131929084]
+layout_mode = 2
+text = "Crear"
+
+[node name="BtnCancelGroup" type="Button" parent="CreateGroupPanel/VBoxContainer" unique_id=53562899]
+layout_mode = 2
+text = "Cancelar"
+
+[node name="CreateStudentPanel" type="Panel" parent="." unique_id=2123874969]
+visible = false
+custom_minimum_size = Vector2(450, 360)
+layout_mode = 0
+offset_left = 351.0
+offset_top = 700.0
+offset_right = 801.0
+offset_bottom = 1060.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreateStudentPanel" unique_id=1549406940]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Title" type="Label" parent="CreateStudentPanel/VBoxContainer" unique_id=1739958750]
+layout_mode = 2
+text = "Crear Estudiante"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="UsernameInput" type="LineEdit" parent="CreateStudentPanel/VBoxContainer" unique_id=252735918]
+layout_mode = 2
+placeholder_text = "Nombre de Usuario"
+
+[node name="GroupInput" type="OptionButton" parent="CreateStudentPanel/VBoxContainer" unique_id=1162157146]
+layout_mode = 2
+
+[node name="PinInput" type="LineEdit" parent="CreateStudentPanel/VBoxContainer" unique_id=698898052]
+layout_mode = 2
+placeholder_text = "PIN de 6 dígitos (Opcional)"
+
+[node name="BtnCreateStudent" type="Button" parent="CreateStudentPanel/VBoxContainer" unique_id=1464531008]
+layout_mode = 2
+text = "Crear"
+
+[node name="BtnCancelStudent" type="Button" parent="CreateStudentPanel/VBoxContainer" unique_id=732987717]
+layout_mode = 2
+text = "Cancelar"
+
+[node name="ListManagerPanel" type="Panel" parent="." unique_id=436888324]
+custom_minimum_size = Vector2(450, 360)
+layout_mode = 0
+offset_left = 351.0
+offset_top = 700.0
+offset_right = 801.0
+offset_bottom = 1060.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ListManagerPanel" unique_id=478004498]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="ListManagerPanel/VBoxContainer" unique_id=466859263]
+layout_mode = 2
+text = "Gestión de Registros"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ListManagerPanel/VBoxContainer" unique_id=1749787035]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ListManagerPanel/VBoxContainer/ScrollContainer" unique_id=702139550]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="BtnCloseList" type="Button" parent="ListManagerPanel/VBoxContainer" unique_id=1123816932]
+layout_mode = 2
+text = "Cerrar"
+
+[node name="EditEntityPanel" type="Panel" parent="." unique_id=276927393]
+visible = false
+custom_minimum_size = Vector2(450, 360)
+layout_mode = 0
+offset_left = 351.0
+offset_top = 700.0
+offset_right = 801.0
+offset_bottom = 1060.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditEntityPanel" unique_id=220231167]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Title" type="Label" parent="EditEntityPanel/VBoxContainer" unique_id=2013430582]
+layout_mode = 2
+text = "Editar Registro"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="EditInput1" type="LineEdit" parent="EditEntityPanel/VBoxContainer" unique_id=2084348169]
+layout_mode = 2
+placeholder_text = "Campo 1"
+
+[node name="EditInput2" type="LineEdit" parent="EditEntityPanel/VBoxContainer" unique_id=538895340]
+layout_mode = 2
+placeholder_text = "Campo 2"
+
+[node name="EditInput3" type="LineEdit" parent="EditEntityPanel/VBoxContainer" unique_id=1289374921]
+layout_mode = 2
+placeholder_text = "Campo 3"
+
+[node name="BtnConfirmEdit" type="Button" parent="EditEntityPanel/VBoxContainer" unique_id=1654594645]
+layout_mode = 2
+text = "Confirmar"
+
+[node name="BtnCancelEdit" type="Button" parent="EditEntityPanel/VBoxContainer" unique_id=1970868694]
+layout_mode = 2
+text = "Cancelar"
+
+[node name="ReportManagerPanel" type="Panel" parent="." unique_id=2048301234]
+visible = false
+custom_minimum_size = Vector2(450, 480)
+layout_mode = 0
+offset_left = 351.0
+offset_top = 700.0
+offset_right = 801.0
+offset_bottom = 1180.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ReportManagerPanel" unique_id=2048301235]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="ReportManagerPanel/VBoxContainer" unique_id=2048301236]
+layout_mode = 2
+text = "Generación de Reportes PDF"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="HSep1" type="HSeparator" parent="ReportManagerPanel/VBoxContainer" unique_id=2048301237]
+layout_mode = 2
+
+[node name="HBoxType" type="HBoxContainer" parent="ReportManagerPanel/VBoxContainer" unique_id=2048301238]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LblType" type="Label" parent="ReportManagerPanel/VBoxContainer/HBoxType" unique_id=2048301239]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Tipo de Reporte:"
+label_settings = SubResource("LabelSettings_style")
+
+[node name="OptReportType" type="OptionButton" parent="ReportManagerPanel/VBoxContainer/HBoxType" unique_id=2048301240]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxGroup" type="HBoxContainer" parent="ReportManagerPanel/VBoxContainer" unique_id=2048301241]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LblGroup" type="Label" parent="ReportManagerPanel/VBoxContainer/HBoxGroup" unique_id=2048301242]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Grupo (opcional):"
+label_settings = SubResource("LabelSettings_style")
+
+[node name="OptReportGroup" type="OptionButton" parent="ReportManagerPanel/VBoxContainer/HBoxGroup" unique_id=2048301243]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LeaderboardFiltersContainer" type="VBoxContainer" parent="ReportManagerPanel/VBoxContainer" unique_id=2048301244]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="GridParams" type="GridContainer" parent="ReportManagerPanel/VBoxContainer/LeaderboardFiltersContainer" unique_id=2048301245]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="LblModo" type="Label" parent="ReportManagerPanel/VBoxContainer/LeaderboardFiltersContainer/GridParams" unique_id=2048301246]
+layout_mode = 2
+text = "Modo:"
+label_settings = SubResource("LabelSettings_style")
+
+[node name="OptLbModo" type="OptionButton" parent="ReportManagerPanel/VBoxContainer/LeaderboardFiltersContainer/GridParams" unique_id=2048301247]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LblDiff" type="Label" parent="ReportManagerPanel/VBoxContainer/LeaderboardFiltersContainer/GridParams" unique_id=2048301248]
+layout_mode = 2
+text = "Dificultad:"
+label_settings = SubResource("LabelSettings_style")
+
+[node name="OptLbDiff" type="OptionButton" parent="ReportManagerPanel/VBoxContainer/LeaderboardFiltersContainer/GridParams" unique_id=2048301249]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LblOrder" type="Label" parent="ReportManagerPanel/VBoxContainer/LeaderboardFiltersContainer/GridParams" unique_id=2048301250]
+layout_mode = 2
+text = "Ordenar por:"
+label_settings = SubResource("LabelSettings_style")
+
+[node name="OptLbOrder" type="OptionButton" parent="ReportManagerPanel/VBoxContainer/LeaderboardFiltersContainer/GridParams" unique_id=2048301251]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LblVariants" type="Label" parent="ReportManagerPanel/VBoxContainer/LeaderboardFiltersContainer" unique_id=2048301252]
+layout_mode = 2
+text = "Variantes requeridas:"
+label_settings = SubResource("LabelSettings_style")
+
+[node name="GridVariants" type="GridContainer" parent="ReportManagerPanel/VBoxContainer/LeaderboardFiltersContainer" unique_id=2048301253]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+columns = 2
+
+[node name="ChkAntiKnight" type="CheckBox" parent="ReportManagerPanel/VBoxContainer/LeaderboardFiltersContainer/GridVariants" unique_id=2048301254]
+layout_mode = 2
+text = "Anti-Caballo"
+
+[node name="ChkThermo" type="CheckBox" parent="ReportManagerPanel/VBoxContainer/LeaderboardFiltersContainer/GridVariants" unique_id=2048301255]
+layout_mode = 2
+text = "Termo"
+
+[node name="ChkKiller" type="CheckBox" parent="ReportManagerPanel/VBoxContainer/LeaderboardFiltersContainer/GridVariants" unique_id=2048301256]
+layout_mode = 2
+text = "Jaulas Killer"
+
+[node name="ChkArrow" type="CheckBox" parent="ReportManagerPanel/VBoxContainer/LeaderboardFiltersContainer/GridVariants" unique_id=2048301257]
+layout_mode = 2
+text = "Flecha"
+
+[node name="BtnGenerateReport" type="Button" parent="ReportManagerPanel/VBoxContainer" unique_id=2048301258]
+layout_mode = 2
+text = "Generar y Abrir PDF"
+
+[node name="BtnCloseReports" type="Button" parent="ReportManagerPanel/VBoxContainer" unique_id=2048301259]
+layout_mode = 2
+text = "Cerrar"
+
+[node name="StatusLabel" type="Label" parent="." unique_id=1493751601]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -100.0
+offset_right = 300.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 18
+text = "Estado"
+horizontal_alignment = 1
+vertical_alignment = 1

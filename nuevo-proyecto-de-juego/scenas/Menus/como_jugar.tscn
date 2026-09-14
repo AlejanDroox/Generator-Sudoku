@@ -1,0 +1,1324 @@
+[gd_scene format=3 uid="uid://ivi01ok3hdaa"]
+
+[ext_resource type="Script" uid="uid://cy3d0uuy0u7jl" path="res://scripts/Menus/como_jugar.gd" id="1_como_jugar_gd"]
+[ext_resource type="Texture2D" uid="uid://7ve3uqfc5pgb" path="res://assets/newfondo.jpg" id="2_fondo"]
+[ext_resource type="Texture2D" uid="uid://d0i1h50x8if7o" path="res://assets/MenuPerzonalizado/FichaMediana.PNG" id="3_ficha"]
+[ext_resource type="Texture2D" uid="uid://c0u0te6876v2" path="res://assets/MenuPerzonalizado/flecha.PNG" id="5_flecha"]
+[ext_resource type="Theme" uid="uid://bxavmwghbmaf6" path="res://assets/temas/PrincipalesMenus.tres" id="6_theme"]
+[ext_resource type="LabelSettings" uid="uid://cltd1x8hgl2op" path="res://assets/temas/tutorial/titulo_tutorial.tres" id="7_title_label_settings"]
+[ext_resource type="LabelSettings" uid="uid://dmvd1x8hgl2op" path="res://assets/temas/tutorial/subtitulo_ficha.tres" id="8_card_label_settings"]
+[ext_resource type="LabelSettings" uid="uid://dnvd1x8hgl2op" path="res://assets/temas/tutorial/numeros_diagrama.tres" id="9_num_label_settings"]
+[ext_resource type="LabelSettings" uid="uid://drhqjmjkpf80s" path="res://assets/temas/tutorial/texto_alerta.tres" id="10_alert_label_settings"]
+[ext_resource type="FontFile" uid="uid://c126k7dlusnb2" path="res://extra/fuentes/ShonenPunk custom bold.ttf" id="11_punk_font"]
+[ext_resource type="LabelSettings" uid="uid://dpvd1x8hgl2op" path="res://assets/temas/tutorial/numero_rojo.tres" id="12_red_num"]
+[ext_resource type="LabelSettings" uid="uid://dqvd1x8hgl2op" path="res://assets/temas/tutorial/numero_verde.tres" id="13_green_num"]
+[ext_resource type="LabelSettings" uid="uid://drvd1x8hgl2op" path="res://assets/temas/tutorial/numero_naranja.tres" id="14_orange_num"]
+[ext_resource type="Script" uid="uid://ca7lk8kbb2qp2" path="res://scripts/Menus/thermo_draw.gd" id="15_thermo_draw_gd"]
+[ext_resource type="Texture2D" uid="uid://di3erdw6g8tvh" path="res://assets/killer_sprites.png" id="16_killer_sprites"]
+[ext_resource type="Script" uid="uid://wqgq8r1a10dc" path="res://scripts/Menus/arrow_draw.gd" id="17_arrow_draw_gd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knight_red"]
+bg_color = Color(0.8, 0.1, 0.1, 0.1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.1, 0.1, 0.5)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knight_green"]
+bg_color = Color(0.1, 0.6, 0.2, 0.1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.1, 0.6, 0.2, 0.5)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i3rku"]
+
+[sub_resource type="FontVariation" id="FontVariation_mxgl3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j4s1q"]
+font = SubResource("FontVariation_mxgl3")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_epuib"]
+
+[node name="ComoJugar" type="Control" unique_id=485753318]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_theme")
+script = ExtResource("1_como_jugar_gd")
+
+[node name="Fondo" type="TextureRect" parent="." unique_id=1068533201]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fondo")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="StackContainer" type="Control" parent="." unique_id=759498845]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -460.0
+offset_top = -250.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CardBottom" type="TextureRect" parent="StackContainer" unique_id=661171151]
+modulate = Color(0.85, 0.85, 0.85, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(230, 210)
+texture = ExtResource("3_ficha")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="StackContainer/CardBottom" unique_id=2129524032]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 15.0
+offset_right = 150.0
+offset_bottom = 45.0
+grow_horizontal = 2
+text = "Fila de Fichas"
+label_settings = ExtResource("8_card_label_settings")
+horizontal_alignment = 1
+
+[node name="CardMiddle" type="TextureRect" parent="StackContainer" unique_id=1140034733]
+modulate = Color(0.92, 0.92, 0.92, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(230, 210)
+texture = ExtResource("3_ficha")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="StackContainer/CardMiddle" unique_id=1058967936]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 15.0
+offset_right = 150.0
+offset_bottom = 45.0
+grow_horizontal = 2
+text = "Ficha Siguiente"
+label_settings = ExtResource("8_card_label_settings")
+horizontal_alignment = 1
+
+[node name="CardTop" type="TextureRect" parent="StackContainer" unique_id=1120002854]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(230, 210)
+texture = ExtResource("3_ficha")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="StackContainer/CardTop" unique_id=185457371]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 15.0
+offset_right = 150.0
+offset_bottom = 45.0
+grow_horizontal = 2
+text = "Ficha Activa"
+label_settings = ExtResource("8_card_label_settings")
+horizontal_alignment = 1
+
+[node name="Diagrams" type="Control" parent="StackContainer/CardTop" unique_id=1558777536]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Classic" type="Control" parent="StackContainer/CardTop/Diagrams" unique_id=239697293]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="StackContainer/CardTop/Diagrams/Classic" unique_id=1467937060]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.08)
+
+[node name="Grid" type="GridContainer" parent="StackContainer/CardTop/Diagrams/Classic" unique_id=1565173153]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 3
+
+[node name="Panel1" type="Panel" parent="StackContainer/CardTop/Diagrams/Classic/Grid" unique_id=1999298829]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Classic/Grid/Panel1" unique_id=31163118]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = ExtResource("9_num_label_settings")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="StackContainer/CardTop/Diagrams/Classic/Grid" unique_id=943374052]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Classic/Grid/Panel2" unique_id=185298193]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+label_settings = ExtResource("9_num_label_settings")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel3" type="Panel" parent="StackContainer/CardTop/Diagrams/Classic/Grid" unique_id=1729611208]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Classic/Grid/Panel3" unique_id=1202194722]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+label_settings = ExtResource("9_num_label_settings")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel4" type="Panel" parent="StackContainer/CardTop/Diagrams/Classic/Grid" unique_id=73254675]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Classic/Grid/Panel4" unique_id=510206473]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "4"
+label_settings = ExtResource("9_num_label_settings")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel5" type="Panel" parent="StackContainer/CardTop/Diagrams/Classic/Grid" unique_id=1278159303]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Classic/Grid/Panel5" unique_id=830554123]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "?"
+label_settings = ExtResource("9_num_label_settings")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel6" type="Panel" parent="StackContainer/CardTop/Diagrams/Classic/Grid" unique_id=357335203]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Classic/Grid/Panel6" unique_id=1144137339]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "6"
+label_settings = ExtResource("9_num_label_settings")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel7" type="Panel" parent="StackContainer/CardTop/Diagrams/Classic/Grid" unique_id=410377919]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Classic/Grid/Panel7" unique_id=1327160046]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "7"
+label_settings = ExtResource("9_num_label_settings")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel8" type="Panel" parent="StackContainer/CardTop/Diagrams/Classic/Grid" unique_id=2119630238]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Classic/Grid/Panel8" unique_id=1277917506]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "8"
+label_settings = ExtResource("9_num_label_settings")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel9" type="Panel" parent="StackContainer/CardTop/Diagrams/Classic/Grid" unique_id=1157661850]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Classic/Grid/Panel9" unique_id=1028783596]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "9"
+label_settings = ExtResource("9_num_label_settings")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Samurai" type="Control" parent="StackContainer/CardTop/Diagrams" unique_id=1567471454]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="StackContainer/CardTop/Diagrams/Samurai" unique_id=781192791]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 80.0
+offset_right = 220.0
+offset_bottom = 240.0
+color = Color(0.8, 0.4, 0.4, 0.15)
+
+[node name="ColorRect2" type="ColorRect" parent="StackContainer/CardTop/Diagrams/Samurai" unique_id=682584121]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 190.0
+offset_right = 330.0
+offset_bottom = 350.0
+color = Color(0.4, 0.6, 0.8, 0.15)
+
+[node name="OverlapZone" type="ColorRect" parent="StackContainer/CardTop/Diagrams/Samurai" unique_id=1895885444]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 190.0
+offset_right = 220.0
+offset_bottom = 240.0
+color = Color(0.18, 0.8, 0.44, 0.4)
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Samurai/OverlapZone" unique_id=673993890]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Solape"
+label_settings = ExtResource("8_card_label_settings")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelT1" type="Label" parent="StackContainer/CardTop/Diagrams/Samurai" unique_id=793949677]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 90.0
+offset_right = 170.0
+offset_bottom = 130.0
+text = "Tablero 1"
+label_settings = ExtResource("12_red_num")
+
+[node name="LabelT2" type="Label" parent="StackContainer/CardTop/Diagrams/Samurai" unique_id=718703044]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 300.0
+offset_right = 325.0
+offset_bottom = 340.0
+text = "Tablero 2"
+label_settings = ExtResource("13_green_num")
+
+[node name="Knight" type="Control" parent="StackContainer/CardTop/Diagrams" unique_id=428165693]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Grid" type="GridContainer" parent="StackContainer/CardTop/Diagrams/Knight" unique_id=191991927]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -110.0
+offset_right = 110.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 3
+theme_override_constants/v_separation = 3
+columns = 5
+
+[node name="P1" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=1948496471]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="P2" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=849450705]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_knight_red")
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Knight/Grid/P2" unique_id=1731232440]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8, 0.1, 0.1, 1)
+theme_override_font_sizes/font_size = 20
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P3" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=940732972]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="P4" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=1389724619]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_knight_red")
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Knight/Grid/P4" unique_id=276829642]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8, 0.1, 0.1, 1)
+theme_override_font_sizes/font_size = 20
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P5" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=824052133]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="P6" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=1558207338]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_knight_red")
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Knight/Grid/P6" unique_id=767204957]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8, 0.1, 0.1, 1)
+theme_override_font_sizes/font_size = 20
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P7" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=210949589]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="P8" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=1122162570]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="P9" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=888585154]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="P10" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=2060554201]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_knight_red")
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Knight/Grid/P10" unique_id=1463555248]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8, 0.1, 0.1, 1)
+theme_override_font_sizes/font_size = 20
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P11" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=578062575]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="P12" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=1372599474]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="CenterHorse" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=1961241987]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_knight_green")
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Knight/Grid/CenterHorse" unique_id=1104290886]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "♘ 8"
+label_settings = ExtResource("13_green_num")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P14" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=505425557]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="P15" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=1429027903]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="P16" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=1697877527]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_knight_red")
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Knight/Grid/P16" unique_id=2093553069]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8, 0.1, 0.1, 1)
+theme_override_font_sizes/font_size = 20
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P17" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=490763186]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="P18" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=508291486]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="P19" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=1852186881]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="P20" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=752926467]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_knight_red")
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Knight/Grid/P20" unique_id=757929964]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8, 0.1, 0.1, 1)
+theme_override_font_sizes/font_size = 20
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P21" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=922708092]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="P22" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=1940422929]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_knight_red")
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Knight/Grid/P22" unique_id=704921650]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8, 0.1, 0.1, 1)
+theme_override_font_sizes/font_size = 20
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P23" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=249668334]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="P24" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=665009544]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_knight_red")
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Knight/Grid/P24" unique_id=973110355]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8, 0.1, 0.1, 1)
+theme_override_font_sizes/font_size = 20
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P25" type="Panel" parent="StackContainer/CardTop/Diagrams/Knight/Grid" unique_id=2116731081]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Killer" type="Control" parent="StackContainer/CardTop/Diagrams" unique_id=1567921730]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Cage" type="ColorRect" parent="StackContainer/CardTop/Diagrams/Killer" unique_id=447132605]
+layout_mode = 0
+offset_left = 130.00002
+offset_top = 130.0
+offset_right = 310.0
+offset_bottom = 230.0
+color = Color(0.8, 0.5, 0.2, 0.08)
+
+[node name="JaulaLeft" type="Sprite2D" parent="StackContainer/CardTop/Diagrams/Killer/Cage" unique_id=831754541]
+position = Vector2(57.99999, 58.000004)
+scale = Vector2(0.16523439, 0.16523439)
+texture = ExtResource("16_killer_sprites")
+hframes = 5
+vframes = 5
+frame = 15
+
+[node name="JaulaRight" type="Sprite2D" parent="StackContainer/CardTop/Diagrams/Killer/Cage" unique_id=831754542]
+position = Vector2(122.99999, 57.999996)
+scale = Vector2(0.1624998, 0.1624998)
+texture = ExtResource("16_killer_sprites")
+hframes = 5
+vframes = 5
+frame = 19
+
+[node name="SumLabel" type="Label" parent="StackContainer/CardTop/Diagrams/Killer/Cage" unique_id=1336147507]
+layout_mode = 0
+offset_left = 131.99998
+offset_top = 63.0
+offset_right = 171.99998
+offset_bottom = 86.0
+text = "4"
+label_settings = ExtResource("14_orange_num")
+
+[node name="CellLeft" type="Panel" parent="StackContainer/CardTop/Diagrams/Killer/Cage" unique_id=1672604484]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 35.0
+offset_right = 80.0
+offset_bottom = 85.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_i3rku")
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Killer/Cage/CellLeft" unique_id=1900951094]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = ExtResource("9_num_label_settings")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Plus" type="Label" parent="StackContainer/CardTop/Diagrams/Killer/Cage" unique_id=2006848681]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 47.0
+offset_right = 97.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.3, 0.3, 0.3, 1)
+theme_override_font_sizes/font_size = 18
+text = "+"
+label_settings = SubResource("LabelSettings_j4s1q")
+horizontal_alignment = 1
+
+[node name="CellRight" type="Panel" parent="StackContainer/CardTop/Diagrams/Killer/Cage" unique_id=461836034]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 35.0
+offset_right = 150.0
+offset_bottom = 85.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_epuib")
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Killer/Cage/CellRight" unique_id=1286337814]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+label_settings = ExtResource("9_num_label_settings")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Equals" type="Label" parent="StackContainer/CardTop/Diagrams/Killer/Cage" unique_id=786285904]
+layout_mode = 0
+offset_left = 13.0
+offset_top = -30.0
+offset_right = 163.0
+offset_bottom = -7.0
+text = "Suma: 1 + 3 = 4 - Valido"
+label_settings = ExtResource("10_alert_label_settings")
+
+[node name="Thermo" type="Control" parent="StackContainer/CardTop/Diagrams" unique_id=760060956]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="StackContainer/CardTop/Diagrams/Thermo" unique_id=1467937061]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.08)
+
+[node name="Overlay" type="Control" parent="StackContainer/CardTop/Diagrams/Thermo" unique_id=123456789]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("15_thermo_draw_gd")
+
+[node name="Grid" type="GridContainer" parent="StackContainer/CardTop/Diagrams/Thermo" unique_id=1565173154]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 3
+
+[node name="Panel1" type="Panel" parent="StackContainer/CardTop/Diagrams/Thermo/Grid" unique_id=1999298830]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="StackContainer/CardTop/Diagrams/Thermo/Grid" unique_id=943374053]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Thermo/Grid/Panel2" unique_id=185298194]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "5"
+label_settings = ExtResource("9_num_label_settings")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel3" type="Panel" parent="StackContainer/CardTop/Diagrams/Thermo/Grid" unique_id=1729611209]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Panel4" type="Panel" parent="StackContainer/CardTop/Diagrams/Thermo/Grid" unique_id=73254676]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Thermo/Grid/Panel4" unique_id=510206474]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+label_settings = ExtResource("12_red_num")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel5" type="Panel" parent="StackContainer/CardTop/Diagrams/Thermo/Grid" unique_id=1278159304]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Thermo/Grid/Panel5" unique_id=830554124]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "4"
+label_settings = ExtResource("9_num_label_settings")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel6" type="Panel" parent="StackContainer/CardTop/Diagrams/Thermo/Grid" unique_id=357335204]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Thermo/Grid/Panel6" unique_id=1144137340]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "7"
+label_settings = ExtResource("9_num_label_settings")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel7" type="Panel" parent="StackContainer/CardTop/Diagrams/Thermo/Grid" unique_id=410377920]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Panel8" type="Panel" parent="StackContainer/CardTop/Diagrams/Thermo/Grid" unique_id=2119630239]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Thermo/Grid/Panel8" unique_id=1277917507]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "9"
+label_settings = ExtResource("9_num_label_settings")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel9" type="Panel" parent="StackContainer/CardTop/Diagrams/Thermo/Grid" unique_id=1157661851]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Arrow" type="Control" parent="StackContainer/CardTop/Diagrams" unique_id=1099516041]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="StackContainer/CardTop/Diagrams/Arrow" unique_id=1467937062]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.08)
+
+[node name="Overlay" type="Control" parent="StackContainer/CardTop/Diagrams/Arrow" unique_id=987654321]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("17_arrow_draw_gd")
+
+[node name="Grid" type="GridContainer" parent="StackContainer/CardTop/Diagrams/Arrow" unique_id=1565173155]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 3
+
+[node name="Panel1" type="Panel" parent="StackContainer/CardTop/Diagrams/Arrow/Grid" unique_id=1999298831]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="StackContainer/CardTop/Diagrams/Arrow/Grid" unique_id=943374054]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Arrow/Grid/Panel2" unique_id=185298195]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+label_settings = ExtResource("9_num_label_settings")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel3" type="Panel" parent="StackContainer/CardTop/Diagrams/Arrow/Grid" unique_id=1729611210]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Panel4" type="Panel" parent="StackContainer/CardTop/Diagrams/Arrow/Grid" unique_id=73254677]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Arrow/Grid/Panel4" unique_id=510206475]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "9"
+label_settings = ExtResource("13_green_num")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel5" type="Panel" parent="StackContainer/CardTop/Diagrams/Arrow/Grid" unique_id=1278159305]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Arrow/Grid/Panel5" unique_id=830554125]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "5"
+label_settings = ExtResource("9_num_label_settings")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel6" type="Panel" parent="StackContainer/CardTop/Diagrams/Arrow/Grid" unique_id=357335205]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Arrow/Grid/Panel6" unique_id=1144137341]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "4"
+label_settings = ExtResource("9_num_label_settings")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel7" type="Panel" parent="StackContainer/CardTop/Diagrams/Arrow/Grid" unique_id=410377921]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Arrow/Grid/Panel7" unique_id=1327160047]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "6"
+label_settings = ExtResource("9_num_label_settings")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel8" type="Panel" parent="StackContainer/CardTop/Diagrams/Arrow/Grid" unique_id=2119630240]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Panel9" type="Panel" parent="StackContainer/CardTop/Diagrams/Arrow/Grid" unique_id=1157661852]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StackContainer/CardTop/Diagrams/Arrow/Grid/Panel9" unique_id=1028783597]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+label_settings = ExtResource("9_num_label_settings")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextContainer" type="Control" parent="." unique_id=1032437661]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -580.0
+offset_top = -250.0
+offset_right = -80.0
+offset_bottom = 170.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="PageTitle" type="Label" parent="TextContainer" unique_id=364049092]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 480.0
+offset_bottom = 60.0
+text = "1. Reglas Basicas"
+label_settings = ExtResource("7_title_label_settings")
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextContainer" unique_id=1986912355]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -345.0
+offset_right = 51.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.18, 0.18, 0.18, 1)
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("11_punk_font")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "Este es el texto del tutorial..."
+scroll_following = true
+vertical_alignment = 1
+
+[node name="PointerArrow" type="Sprite2D" parent="." unique_id=1798863333]
+position = Vector2(490, 240)
+rotation = 3.14159
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("5_flecha")
+offset = Vector2(50, 0)
+
+[node name="Navigation" type="Control" parent="." unique_id=1371028765]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -90.0
+offset_right = 500.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BtnPrev" type="Button" parent="Navigation" unique_id=437392203]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -25.0
+offset_right = 260.0
+offset_bottom = 25.0
+grow_vertical = 2
+text = "Anterior"
+
+[node name="BtnNext" type="Button" parent="Navigation" unique_id=345007281]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -25.0
+offset_right = -100.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Siguiente"
+
+[node name="BtnBack" type="Button" parent="Navigation" unique_id=1433095851]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -25.0
+offset_right = 100.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Volver al Menu"

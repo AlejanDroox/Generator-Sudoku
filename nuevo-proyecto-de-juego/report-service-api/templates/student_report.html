@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reporte de Rendimiento - Sudoku Samurai++</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+    
+    :root {
+      --primary: #4F46E5;
+      --primary-light: #EEF2F6;
+      --secondary: #06B6D4;
+      --dark: #0F172A;
+      --light-bg: #F8FAFC;
+      --border: #E2E8F0;
+      --text: #334155;
+      --text-muted: #64748B;
+      --success: #10B981;
+      --warning: #F59E0B;
+      --danger: #EF4444;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+      color: var(--text);
+      background-color: #FFFFFF;
+      margin: 0;
+      padding: 40px;
+      line-height: 1.5;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0;
+      letter-spacing: -0.5px;
+    }
+
+    .brand span {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .report-meta {
+      text-align: right;
+    }
+
+    .report-meta h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--dark);
+      margin: 0;
+    }
+
+    .report-meta p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 4px 0 0 0;
+    }
+
+    .student-info-card {
+      background-color: var(--light-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 20px;
+      margin-bottom: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .info-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-top: 4px;
+    }
+
+    .grid-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .stat-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      background-color: #FFFFFF;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    .stat-card.primary { border-top: 4px solid var(--primary); }
+    .stat-card.secondary { border-top: 4px solid var(--secondary); }
+    .stat-card.success { border-top: 4px solid var(--success); }
+    .stat-card.warning { border-top: 4px solid var(--warning); }
+
+    .stat-num {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-top: 4px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .charts-container {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 20px;
+      margin-bottom: 35px;
+    }
+
+    .chart-box {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      background-color: #FFFFFF;
+    }
+
+    .chart-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-top: 0;
+      margin-bottom: 15px;
+      border-left: 3px solid var(--primary);
+      padding-left: 8px;
+    }
+
+    .chart-wrapper {
+      position: relative;
+      height: 220px;
+      width: 100%;
+    }
+
+    .table-container {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--light-bg);
+      border-bottom: 2px solid var(--border);
+      padding: 10px 12px;
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      border-bottom: 1px solid var(--border);
+      padding: 12px;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+
+    .badge.facil { background-color: #D1FAE5; color: #065F46; }
+    .badge.medio { background-color: #FEF3C7; color: #92400E; }
+    .badge.dificil { background-color: #FEE2E2; color: #991B1B; }
+    .badge.extremo { background-color: #F3E8FF; color: #6B21A8; }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding-top: 15px;
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* Evitar saltos de página incómodos en impresión */
+    .page-break {
+      page-break-before: always;
+    }
+  </style>
+  <!-- Chart.js para renderizar los gráficos -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <div class="header">
+    <div class="brand">
+      <h1>SUDOKU SAMURAI++</h1>
+      <span>Reporte Académico de Rendimiento</span>
+    </div>
+    <div class="report-meta">
+      <h2>Estadísticas del Estudiante</h2>
+      <p>Generado: <span id="report-date">--/--/----</span></p>
+    </div>
+  </div>
+
+  <div class="student-info-card">
+    <div class="info-item">
+      <span class="info-label">Estudiante</span>
+      <span class="info-value" id="student-name">Cargando...</span>
+    </div>
+    <div class="info-item">
+      <span class="info-label">Usuario</span>
+      <span class="info-value" id="student-username">Cargando...</span>
+    </div>
+    <div class="info-item">
+      <span class="info-label">Grupo Escolar</span>
+      <span class="info-value" id="student-group">Cargando...</span>
+    </div>
+  </div>
+
+  <div class="grid-stats">
+    <div class="stat-card primary">
+      <span class="stat-label">Puntuación Total</span>
+      <div class="stat-num" id="stat-total-score">0</div>
+    </div>
+    <div class="stat-card secondary">
+      <span class="stat-label">Partidas Jugadas</span>
+      <div class="stat-num" id="stat-games-played">0</div>
+    </div>
+    <div class="stat-card success">
+      <span class="stat-label">Tiempo Promedio</span>
+      <div class="stat-num" id="stat-avg-time">0m 0s</div>
+    </div>
+    <div class="stat-card warning">
+      <span class="stat-label">Errores Promedio</span>
+      <div class="stat-num" id="stat-avg-errors">0.0</div>
+    </div>
+  </div>
+
+  <div class="charts-container">
+    <div class="chart-box">
+      <h3 class="chart-title">Evolución de Puntaje (Últimas Partidas)</h3>
+      <div class="chart-wrapper">
+        <canvas id="scoreChart"></canvas>
+      </div>
+    </div>
+    <div class="chart-box">
+      <h3 class="chart-title">Partidas por Dificultad</h3>
+      <div class="chart-wrapper">
+        <canvas id="difficultyChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <h3 class="section-title">Historial de Partidas Recientes</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Dificultad</th>
+          <th>Modo</th>
+          <th>Variantes</th>
+          <th>Tableros</th>
+          <th>Puntaje</th>
+          <th>Tiempo</th>
+        </tr>
+      </thead>
+      <tbody id="games-table-body">
+        <!-- Las filas se insertarán dinámicamente -->
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    <span>© 2026 Sudoku Samurai++</span>
+    <span>Página 1 de 1</span>
+  </div>
+
+  <script>
+    // Esta función será llamada o inyectará los datos el servidor Node.js
+    function initReport(data) {
+      document.getElementById('report-date').innerText = new Date(data.generatedAt || Date.now()).toLocaleDateString('es-ES', {
+        year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+      });
+      document.getElementById('student-name').innerText = data.student.nombre || 'N/A';
+      document.getElementById('student-username').innerText = data.student.usuario || 'N/A';
+      document.getElementById('student-group').innerText = data.student.grupo || 'Sin Grupo';
+      
+      document.getElementById('stat-total-score').innerText = data.stats.totalScore.toLocaleString();
+      document.getElementById('stat-games-played').innerText = data.stats.gamesPlayed;
+      
+      const avgSeconds = data.stats.avgTimeSeconds || 0;
+      const mins = Math.floor(avgSeconds / 60);
+      const secs = Math.round(avgSeconds % 60);
+      document.getElementById('stat-avg-time').innerText = `${mins}m ${secs}s`;
+      document.getElementById('stat-avg-errors').innerText = (data.stats.avgErrors || 0).toFixed(1);
+
+      // Historial
+      const tbody = document.getElementById('games-table-body');
+      tbody.innerHTML = '';
+      if (!data.games || data.games.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; color: var(--text-muted);">No hay partidas registradas.</td></tr>';
+      } else {
+        data.games.forEach(g => {
+          const tr = document.createElement('tr');
+          const dateStr = new Date(g.fecha || g.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: '2-digit' });
+          const gMins = Math.floor(g.tiempo / 60);
+          const gSecs = Math.round(g.tiempo % 60);
+          
+          // Traducir modo a español amigable
+          let modoStr = g.modo === 'practice' ? 'Práctica' : (g.modo === 'challenge' ? 'Desafío' : g.modo);
+          
+          // Traducir y formatear variantes
+          const varMap = {
+            'anti_knight': 'Anti-Caballo',
+            'thermo': 'Termo',
+            'killer': 'Jaulas Killer',
+            'arrow': 'Flecha'
+          };
+          let vars = 'Ninguna';
+          if (Array.isArray(g.variantes_activas) && g.variantes_activas.length > 0) {
+            vars = g.variantes_activas.map(v => varMap[v] || v).join(', ');
+          } else if (typeof g.variantes === 'string') {
+            vars = g.variantes; // Fallback para mock data
+          }
+          
+          const scoreVal = g.puntuacion !== undefined ? g.puntuacion : (g.score || 0);
+          const tablerosVal = g.tableros_completados !== undefined ? g.tableros_completados : 1;
+          
+          tr.innerHTML = `
+            <td>${dateStr}</td>
+            <td><span class="badge ${g.dificultad.toLowerCase()}">${g.dificultad}</span></td>
+            <td>${modoStr}</td>
+            <td>${vars}</td>
+            <td style="font-weight: 500;">${tablerosVal}</td>
+            <td style="font-weight: 600; color: var(--primary);">${scoreVal.toLocaleString()}</td>
+            <td>${gMins}m ${gSecs}s</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      // Renderizar Gráfico de Líneas (Evolución de Puntaje)
+      const scoreCtx = document.getElementById('scoreChart').getContext('2d');
+      const scoreLabels = data.chartData.scores.map((_, i) => `Partida ${i + 1}`);
+      new Chart(scoreCtx, {
+        type: 'line',
+        data: {
+          labels: scoreLabels,
+          datasets: [{
+            label: 'Puntaje',
+            data: data.chartData.scores,
+            borderColor: '#4F46E5',
+            backgroundColor: 'rgba(79, 70, 229, 0.05)',
+            borderWidth: 3,
+            fill: true,
+            tension: 0.3,
+            pointBackgroundColor: '#4F46E5',
+            pointRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: {
+              grid: { color: '#F1F5F9' },
+              ticks: { color: '#64748B', font: { family: 'Plus Jakarta Sans', size: 10 } }
+            },
+            x: {
+              grid: { display: false },
+              ticks: { color: '#64748B', font: { family: 'Plus Jakarta Sans', size: 10 } }
+            }
+          }
+        }
+      });
+
+      // Renderizar Gráfico de Donut (Distribución de Dificultad)
+      const diffCtx = document.getElementById('difficultyChart').getContext('2d');
+      const diffLabels = Object.keys(data.chartData.difficulties);
+      const diffValues = Object.values(data.chartData.difficulties);
+      const diffColors = {
+        'Facil': '#10B981',   // Verde
+        'Medio': '#F59E0B',   // Amarillo
+        'Dificil': '#EF4444', // Rojo
+        'Extremo': '#8B5CF6'  // Morado
+      };
+      const backgroundColors = diffLabels.map(label => diffColors[label] || '#64748B');
+
+      new Chart(diffCtx, {
+        type: 'doughnut',
+        data: {
+          labels: diffLabels,
+          datasets: [{
+            data: diffValues,
+            backgroundColor: backgroundColors,
+            borderWidth: 2,
+            borderColor: '#ffffff'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'right',
+              labels: {
+                color: '#64748B',
+                font: { family: 'Plus Jakarta Sans', size: 11, weight: '500' },
+                boxWidth: 12
+              }
+            }
+          },
+          cutout: '65%'
+        }
+      });
+    }
+  </script>
+</body>
+</html>

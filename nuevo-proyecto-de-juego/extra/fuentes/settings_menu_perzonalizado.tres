@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://ds324gx003wi3"]
+
+[ext_resource type="FontFile" uid="uid://c126k7dlusnb2" path="res://extra/fuentes/ShonenPunk custom bold.ttf" id="1_q6678"]
+
+[resource]
+paragraph_spacing = 3.0
+font = ExtResource("1_q6678")
+font_size = 20
+font_color = Color(0.16078432, 0.16470589, 0.14509805, 0.9019608)

@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://hyd7ntumj1vq"]
+
+[ext_resource type="Theme" uid="uid://1vojklcmg1ak" path="res://assets/temas/menu_flotante2.tres" id="1_af2ua"]
+[ext_resource type="Texture2D" uid="uid://bvkjec55rp3k5" path="res://assets/MenuPerzonalizado/carga.PNG" id="3_n53h7"]
+[ext_resource type="Texture2D" uid="uid://daa5rkt1xqj5c" path="res://assets/MenuPerzonalizado/fondo_barra.PNG" id="3_qyk4m"]
+[ext_resource type="Script" uid="uid://cutoufiidvm7" path="res://scripts/Menus/loading_panel.gd" id="4_script"]
+[ext_resource type="FontFile" uid="uid://c126k7dlusnb2" path="res://extra/fuentes/ShonenPunk custom bold.ttf" id="5_qyk4m"]
+
+[node name="Control" type="Panel" unique_id=250798491]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_af2ua")
+script = ExtResource("4_script")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1332218203]
+layout_mode = 0
+offset_left = 219.0
+offset_top = 398.0
+offset_right = 905.61
+offset_bottom = 523.0
+value = 45.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_qyk4m")
+texture_progress = ExtResource("3_n53h7")
+
+[node name="Aclaracion" type="Label" parent="." unique_id=1271352351]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 538.0
+offset_right = 956.0
+offset_bottom = 597.0
+theme = ExtResource("1_af2ua")
+theme_override_colors/font_color = Color(0, 0, 0, 0.6666667)
+text = "*En Modo Dificil y extremo Con todas las variantes activas
+Puede tardar entre 1 a 4 minutos en generar el primer tablero*"
+
+[node name="Label" type="Label" parent="." unique_id=317492622]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 26.0
+offset_right = 1136.0
+offset_bottom = 106.0
+theme = ExtResource("1_af2ua")
+theme_override_constants/line_spacing = 10
+theme_override_font_sizes/font_size = 50
+text = "Cargando..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Consejos" type="RichTextLabel" parent="." unique_id=671947176]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 159.0
+offset_right = 958.0
+offset_bottom = 372.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("5_qyk4m")
+theme_override_font_sizes/normal_font_size = 28
+autowrap_mode = 0
+autowrap_trim_flags = 128
+horizontal_alignment = 1
+vertical_alignment = 1

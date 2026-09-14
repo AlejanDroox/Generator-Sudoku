@@ -1,0 +1,19 @@
+[gd_resource type="Theme" format=3 uid="uid://1vojklcmg1ak"]
+
+[ext_resource type="FontFile" uid="uid://c126k7dlusnb2" path="res://extra/fuentes/ShonenPunk custom bold.ttf" id="1_66r6l"]
+[ext_resource type="Texture2D" uid="uid://d0i1h50x8if7o" path="res://assets/MenuPerzonalizado/FichaMediana.PNG" id="1_oxavb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_66r6l"]
+texture = ExtResource("1_oxavb")
+expand_margin_left = 25.0
+expand_margin_top = 12.0
+expand_margin_right = 25.0
+expand_margin_bottom = 12.0
+
+[resource]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 24
+Label/fonts/font = ExtResource("1_66r6l")
+Panel/styles/panel = SubResource("StyleBoxTexture_66r6l")
+TextEdit/colors/background_color = Color(0.3328808, 0.33288068, 0.33288068, 0.08235294)
+TextEdit/icons/space = null

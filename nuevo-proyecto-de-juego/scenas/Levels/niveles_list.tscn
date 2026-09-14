@@ -1,0 +1,201 @@
+[gd_scene format=3 uid="uid://k2q88d0dh0gw"]
+
+[ext_resource type="Texture2D" uid="uid://7ve3uqfc5pgb" path="res://assets/newfondo.jpg" id="1_ggjim"]
+[ext_resource type="Script" uid="uid://bcs2s1sjj0o5n" path="res://scripts/niveles_list.gd" id="1_niveles_list_gd"]
+[ext_resource type="PackedScene" uid="uid://drj7y7y4qt8ks" path="res://scenas/Menus/PerzonalizacionNivel.tscn" id="3_custom_menu"]
+[ext_resource type="FontFile" uid="uid://c126k7dlusnb2" path="res://extra/fuentes/ShonenPunk custom bold.ttf" id="3_errft"]
+[ext_resource type="Texture2D" uid="uid://c0u0te6876v2" path="res://assets/MenuPerzonalizado/flecha.PNG" id="3_jntnb"]
+[ext_resource type="Texture2D" uid="uid://b84whkbg0caoq" path="res://assets/prueba boton.png" id="4_wsks1"]
+[ext_resource type="Theme" uid="uid://bxavmwghbmaf6" path="res://assets/temas/PrincipalesMenus.tres" id="6_jntnb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jntnb"]
+
+[node name="NivelesList" type="Node2D" unique_id=259722886]
+script = ExtResource("1_niveles_list_gd")
+
+[node name="Newfondo" type="Sprite2D" parent="." unique_id=1257562045]
+position = Vector2(581, 398)
+rotation = 1.5707964
+texture = ExtResource("1_ggjim")
+metadata/_edit_lock_ = true
+
+[node name="Container" type="BoxContainer" parent="." unique_id=1225503716]
+offset_right = 1153.0
+offset_bottom = 100.0
+
+[node name="btn_back" type="Button" parent="Container" unique_id=99999999]
+layout_mode = 2
+icon = ExtResource("3_jntnb")
+flat = true
+
+[node name="BoxContainer" type="VBoxContainer" parent="." unique_id=778543185]
+offset_top = 122.0
+offset_right = 1153.0
+offset_bottom = 559.0
+
+[node name="AntiCaballo" type="HBoxContainer" parent="BoxContainer" unique_id=2112657835]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="AC_P" type="Button" parent="BoxContainer/AntiCaballo" unique_id=43496425]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.017732391, 0.017732391, 0.01773239, 0.8039216)
+theme_override_colors/font_focus_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_colors/font_pressed_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_colors/font_hover_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_fonts/font = ExtResource("3_errft")
+text = "Anti-Caballo
+Practica"
+icon = ExtResource("4_wsks1")
+flat = true
+autowrap_trim_flags = 0
+icon_alignment = 1
+
+[node name="AC_D" type="Button" parent="BoxContainer/AntiCaballo" unique_id=2138710719]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.017732391, 0.017732391, 0.01773239, 0.8039216)
+theme_override_colors/font_focus_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_colors/font_pressed_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_colors/font_hover_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_fonts/font = ExtResource("3_errft")
+text = "Anti-Caballo
+Desafio"
+icon = ExtResource("4_wsks1")
+flat = true
+autowrap_trim_flags = 0
+icon_alignment = 1
+
+[node name="Killer" type="HBoxContainer" parent="BoxContainer" unique_id=1582088609]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Killer_P" type="Button" parent="BoxContainer/Killer" unique_id=316444822]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.017732391, 0.017732391, 0.01773239, 0.8039216)
+theme_override_colors/font_focus_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_colors/font_pressed_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_colors/font_hover_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_fonts/font = ExtResource("3_errft")
+text = "Killer
+Practica"
+icon = ExtResource("4_wsks1")
+flat = true
+autowrap_trim_flags = 0
+icon_alignment = 1
+
+[node name="Killer_D" type="Button" parent="BoxContainer/Killer" unique_id=251092176]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.017732391, 0.017732391, 0.01773239, 0.8039216)
+theme_override_colors/font_focus_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_colors/font_pressed_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_colors/font_hover_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_fonts/font = ExtResource("3_errft")
+text = "Killer
+Desafio"
+icon = ExtResource("4_wsks1")
+flat = true
+autowrap_trim_flags = 0
+icon_alignment = 1
+
+[node name="Termo" type="HBoxContainer" parent="BoxContainer" unique_id=1737785886]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Termo_P" type="Button" parent="BoxContainer/Termo" unique_id=694362646]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.017732391, 0.017732391, 0.01773239, 0.8039216)
+theme_override_colors/font_focus_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_colors/font_pressed_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_colors/font_hover_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_fonts/font = ExtResource("3_errft")
+text = "Termo
+Practica"
+icon = ExtResource("4_wsks1")
+flat = true
+autowrap_trim_flags = 0
+icon_alignment = 1
+
+[node name="Termo_D" type="Button" parent="BoxContainer/Termo" unique_id=244199375]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.017732391, 0.017732391, 0.01773239, 0.8039216)
+theme_override_colors/font_focus_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_colors/font_pressed_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_colors/font_hover_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_fonts/font = ExtResource("3_errft")
+text = "Termo
+Desafio"
+icon = ExtResource("4_wsks1")
+flat = true
+autowrap_trim_flags = 0
+icon_alignment = 1
+
+[node name="Arrow" type="HBoxContainer" parent="BoxContainer" unique_id=1805233803]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Arrow_P" type="Button" parent="BoxContainer/Arrow" unique_id=1543614607]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.017732391, 0.017732391, 0.01773239, 0.8039216)
+theme_override_colors/font_focus_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_colors/font_pressed_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_colors/font_hover_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_fonts/font = ExtResource("3_errft")
+text = "Flecha
+Practica"
+icon = ExtResource("4_wsks1")
+flat = true
+autowrap_trim_flags = 0
+icon_alignment = 1
+
+[node name="Arrow_D" type="Button" parent="BoxContainer/Arrow" unique_id=2141054108]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.017732391, 0.017732391, 0.01773239, 0.8039216)
+theme_override_colors/font_focus_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_colors/font_pressed_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_colors/font_hover_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8666667)
+theme_override_fonts/font = ExtResource("3_errft")
+text = "Flecha
+Desafio"
+icon = ExtResource("4_wsks1")
+flat = true
+autowrap_trim_flags = 0
+icon_alignment = 1
+
+[node name="Perzonalizado" type="HBoxContainer" parent="BoxContainer" unique_id=56117752]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/Perzonalizado" unique_id=484357838]
+layout_mode = 2
+
+[node name="btn_reanudar" type="Button" parent="BoxContainer/Perzonalizado/VBoxContainer" unique_id=426575330]
+visible = false
+layout_mode = 2
+theme = ExtResource("6_jntnb")
+text = "Reanudar"
+
+[node name="HSeparator" type="HSeparator" parent="BoxContainer/Perzonalizado/VBoxContainer" unique_id=1446692429]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jntnb")
+
+[node name="btn_custom" type="Button" parent="BoxContainer/Perzonalizado/VBoxContainer" unique_id=98712350]
+layout_mode = 2
+theme = ExtResource("6_jntnb")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.099985994, 0.099985994, 0.099985994, 0.78431374)
+theme_override_fonts/font = ExtResource("3_errft")
+theme_override_font_sizes/font_size = 32
+text = "Modo Personalizado"
+icon_alignment = 1
+
+[node name="PerzonalizacionNivel" parent="." unique_id=98712351 instance=ExtResource("3_custom_menu")]
+position = Vector2(210, 750)
+
+[connection signal="pressed" from="Container/btn_back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="BoxContainer/Perzonalizado/VBoxContainer/btn_custom" to="." method="_on_custom_pressed"]

@@ -1,0 +1,407 @@
+[gd_scene format=3 uid="uid://drj7y7y4qt8ks"]
+
+[ext_resource type="Texture2D" uid="uid://cvyb8kvqr4eoe" path="res://assets/MenuPerzonalizado/Fondo.PNG" id="1_odl10"]
+[ext_resource type="LabelSettings" uid="uid://ds324gx003wi3" path="res://extra/fuentes/settings_menu_perzonalizado.tres" id="2_odl10"]
+[ext_resource type="Script" uid="uid://unx2j8o7n6ha" path="res://scripts/Menus/select_dificultada.gd" id="2_tj8ke"]
+[ext_resource type="Texture2D" uid="uid://cmyqrtnta5x8w" path="res://assets/MenuPerzonalizado/mas.PNG" id="3_bhk8w"]
+[ext_resource type="Texture2D" uid="uid://bb7mykfcdyxbe" path="res://assets/MenuPerzonalizado/Seleccionar.PNG" id="3_vmbyd"]
+[ext_resource type="FontFile" uid="uid://c126k7dlusnb2" path="res://extra/fuentes/ShonenPunk custom bold.ttf" id="4_bhk8w"]
+[ext_resource type="Texture2D" uid="uid://buk8bbuwqoq84" path="res://assets/MenuPerzonalizado/-.PNG" id="4_x0rnv"]
+[ext_resource type="Texture2D" uid="uid://cqmx537dp8iek" path="res://assets/MenuPerzonalizado/X.PNG" id="7_s0ako"]
+[ext_resource type="ButtonGroup" uid="uid://bl1vyncscof3p" path="res://scenas/Menus/bottons_mode.tres" id="8_x0rnv"]
+[ext_resource type="Texture2D" uid="uid://c0u0te6876v2" path="res://assets/MenuPerzonalizado/flecha.PNG" id="10_jiat2"]
+[ext_resource type="Script" uid="uid://bjd3roj0qw4av" path="res://scripts/Menus/PerzonalizacionNivel.gd" id="11_menu_perzonalizacion"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_ee0yg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s0ako"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jiat2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w0lf3"]
+
+[node name="Node2D" type="Node2D" unique_id=561849326]
+script = ExtResource("11_menu_perzonalizacion")
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=222060015]
+position = Vector2(373, 245)
+scale = Vector2(0.39613524, 0.3961353)
+texture = ExtResource("1_odl10")
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="." unique_id=2046560792]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 732.0
+offset_bottom = 482.0
+
+[node name="NumBoard" type="Control" parent="Control" unique_id=1466608257]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="tableros" type="Label" parent="Control/NumBoard" unique_id=781091424]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 131.0
+offset_right = 124.0
+offset_bottom = 161.0
+text = "Tableros:"
+label_settings = ExtResource("2_odl10")
+vertical_alignment = 1
+
+[node name="num" type="Label" parent="Control/NumBoard" unique_id=1204641822]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 131.0
+offset_right = 191.0
+offset_bottom = 161.0
+text = "999"
+label_settings = ExtResource("2_odl10")
+vertical_alignment = 1
+
+[node name="-" type="Button" parent="Control/NumBoard" unique_id=1778634457]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 142.0
+offset_top = 137.0
+offset_right = 158.22449
+offset_bottom = 152.0
+flat = true
+
+[node name="+" type="Button" parent="Control/NumBoard" unique_id=941004796]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 198.0
+offset_top = 137.0
+offset_right = 214.22449
+offset_bottom = 152.0
+flat = true
+
+[node name="Mas" type="Sprite2D" parent="Control/NumBoard" unique_id=1888868804]
+position = Vector2(207, 144)
+scale = Vector2(0.37804878, 0.37804878)
+texture = ExtResource("3_bhk8w")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/NumBoard" unique_id=1871490876]
+position = Vector2(176, 157)
+scale = Vector2(0.97727275, 0.36363587)
+texture = ExtResource("4_x0rnv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control/NumBoard" unique_id=1530577396]
+position = Vector2(151, 145)
+scale = Vector2(0.47727272, 0.47727272)
+texture = ExtResource("4_x0rnv")
+
+[node name="SelectDificultada" type="Control" parent="Control" unique_id=306148581]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_tj8ke")
+
+[node name="Seleccionar" type="Sprite2D" parent="Control/SelectDificultada" unique_id=1977468628]
+position = Vector2(301, 115)
+scale = Vector2(0.40384614, 0.40384614)
+texture = ExtResource("3_vmbyd")
+
+[node name="Facil" type="CheckButton" parent="Control/SelectDificultada" unique_id=1403385772]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 259.0
+offset_top = 102.0
+offset_right = 343.0
+offset_bottom = 131.0
+button_group = SubResource("ButtonGroup_ee0yg")
+
+[node name="medio" type="CheckButton" parent="Control/SelectDificultada" unique_id=2133109219]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 356.0
+offset_top = 102.0
+offset_right = 439.0
+offset_bottom = 131.0
+button_group = SubResource("ButtonGroup_ee0yg")
+
+[node name="dificl" type="CheckButton" parent="Control/SelectDificultada" unique_id=384983689]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 445.5096
+offset_top = 102.0
+offset_right = 546.50964
+offset_bottom = 131.0
+button_group = SubResource("ButtonGroup_ee0yg")
+
+[node name="extremo" type="CheckButton" parent="Control/SelectDificultada" unique_id=310906960]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 559.50964
+offset_top = 102.0
+offset_right = 660.50964
+offset_bottom = 131.0
+button_group = SubResource("ButtonGroup_ee0yg")
+
+[node name="Label" type="Label" parent="Control/SelectDificultada" unique_id=460387201]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 101.0
+offset_right = 661.0
+offset_bottom = 131.0
+text = "Dificultad:                 Facil      Medio    Dificil     Extremo*"
+label_settings = ExtResource("2_odl10")
+vertical_alignment = 1
+
+[node name="Modo" type="Control" parent="Control" unique_id=2122324602]
+anchors_preset = 0
+offset_left = 21.0
+offset_top = 158.0
+offset_right = 691.0
+offset_bottom = 191.0
+
+[node name="Label" type="Label" parent="Control/Modo" unique_id=1139047538]
+layout_mode = 0
+offset_top = 5.0
+offset_right = 629.0
+offset_bottom = 35.0
+text = "Modo:                           Practica                     Desafio"
+label_settings = ExtResource("2_odl10")
+vertical_alignment = 1
+
+[node name="X_Guiado" type="Sprite2D" parent="Control/Modo" unique_id=817255438]
+position = Vector2(250.00002, 14.999995)
+scale = Vector2(0.5357147, 0.5357147)
+texture = ExtResource("7_s0ako")
+
+[node name="Guiado" type="CheckButton" parent="Control/Modo" unique_id=2106020899]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 228.0
+offset_top = 3.0
+offset_right = 373.0
+offset_bottom = 35.0
+button_group = ExtResource("8_x0rnv")
+
+[node name="X_Desafio" type="Sprite2D" parent="Control/Modo" unique_id=809147185]
+position = Vector2(498, 14.999995)
+scale = Vector2(0.5357147, 0.5357147)
+texture = ExtResource("7_s0ako")
+
+[node name="Desafio" type="CheckButton" parent="Control/Modo" unique_id=1666789410]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 459.0
+offset_top = 3.0
+offset_right = 629.0
+offset_bottom = 35.0
+button_group = ExtResource("8_x0rnv")
+
+[node name="Variantes" type="Control" parent="Control" unique_id=576469892]
+anchors_preset = 0
+offset_left = 17.0
+offset_top = 189.0
+offset_right = 581.0
+offset_bottom = 279.0
+
+[node name="Titulo" type="Label" parent="Control/Variantes" unique_id=1101908648]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 7.0
+offset_right = 298.0
+offset_bottom = 31.0
+text = "Variantes Habilitadas"
+label_settings = ExtResource("2_odl10")
+
+[node name="Variantes" type="Label" parent="Control/Variantes" unique_id=1038899362]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 39.0
+offset_right = 318.0
+offset_bottom = 63.0
+text = "Clasico         Anti-caballo        killer
+Termo            Flecha"
+label_settings = ExtResource("2_odl10")
+
+[node name="Clasico" type="Sprite2D" parent="Control/Variantes" unique_id=1276340766]
+position = Vector2(52, 52.999992)
+rotation = -2.9594276
+scale = Vector2(0.35714287, 0.35714287)
+texture = ExtResource("7_s0ako")
+
+[node name="Anti-Caballo" type="Sprite2D" parent="Control/Variantes" unique_id=99579059]
+position = Vector2(202.00002, 52.999992)
+rotation = -2.9594276
+scale = Vector2(0.35714287, 0.35714287)
+texture = ExtResource("7_s0ako")
+
+[node name="Killer" type="Sprite2D" parent="Control/Variantes" unique_id=23369161]
+position = Vector2(411, 52.999992)
+rotation = -2.9594276
+scale = Vector2(0.35714287, 0.35714287)
+texture = ExtResource("7_s0ako")
+
+[node name="Termo" type="Sprite2D" parent="Control/Variantes" unique_id=327938691]
+position = Vector2(50.00003, 80.99999)
+rotation = -2.9594276
+scale = Vector2(0.35714287, 0.35714287)
+texture = ExtResource("7_s0ako")
+
+[node name="Flecha" type="Sprite2D" parent="Control/Variantes" unique_id=1594175193]
+position = Vector2(201.99998, 80.99999)
+rotation = -2.9594276
+scale = Vector2(0.35714287, 0.35714287)
+texture = ExtResource("7_s0ako")
+
+[node name="BotonClasico" type="CheckButton" parent="Control/Variantes" unique_id=1130222465]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 42.0
+offset_top = 35.0
+offset_right = 149.0
+offset_bottom = 59.0
+
+[node name="BotonA-C" type="CheckButton" parent="Control/Variantes" unique_id=941231281]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 187.0
+offset_top = 35.0
+offset_right = 368.0
+offset_bottom = 59.0
+
+[node name="BotonKiller" type="CheckButton" parent="Control/Variantes" unique_id=1214441752]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 389.0
+offset_top = 35.0
+offset_right = 505.0
+offset_bottom = 59.0
+
+[node name="BotonTermo" type="CheckButton" parent="Control/Variantes" unique_id=1994065903]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 34.0
+offset_top = 67.0
+offset_right = 128.0
+offset_bottom = 91.0
+
+[node name="BotonFlecha" type="CheckButton" parent="Control/Variantes" unique_id=1887831164]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 191.0
+offset_top = 67.0
+offset_right = 285.0
+offset_bottom = 91.0
+
+[node name="Avanzado" type="Control" parent="Control" unique_id=829260477]
+anchors_preset = 0
+offset_left = 49.0
+offset_top = 306.0
+offset_right = 611.0
+offset_bottom = 431.0
+
+[node name="Semilla" type="TextEdit" parent="Control/Avanzado" unique_id=1604789047]
+layout_mode = 0
+offset_left = 183.0
+offset_top = 92.0
+offset_right = 578.0
+offset_bottom = 127.0
+theme_override_colors/font_color = Color(0.11764706, 0.11764706, 0.11764706, 0.81960785)
+theme_override_colors/font_placeholder_color = Color(0.33333334, 0.33333334, 0.33333334, 0.6666667)
+theme_override_fonts/font = ExtResource("4_bhk8w")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_s0ako")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jiat2")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_w0lf3")
+text = "0"
+placeholder_text = "Dejar 0 para generacion aleatoria"
+emoji_menu_enabled = false
+
+[node name="Label" type="Label" parent="Control/Avanzado" unique_id=661943508]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 8.0
+offset_right = 366.0
+offset_bottom = 32.0
+text = "Avananzados"
+label_settings = ExtResource("2_odl10")
+
+[node name="Label2" type="Label" parent="Control/Avanzado" unique_id=764626854]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 37.0
+offset_right = 214.0
+offset_bottom = 61.0
+text = "Complejidad Progresiva*"
+label_settings = ExtResource("2_odl10")
+
+[node name="Label3" type="Label" parent="Control/Avanzado" unique_id=1998450608]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 66.0
+offset_right = 322.0
+offset_bottom = 90.0
+text = "Variantes Desde el primer tablero"
+label_settings = ExtResource("2_odl10")
+
+[node name="Label4" type="Label" parent="Control/Avanzado" unique_id=2085803671]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 96.0
+offset_right = 194.0
+offset_bottom = 120.0
+text = "Semilla:"
+label_settings = ExtResource("2_odl10")
+
+[node name="X_Complejidad" type="Sprite2D" parent="Control/Avanzado" unique_id=98712345]
+position = Vector2(30, 49)
+rotation = -2.9594276
+scale = Vector2(0.35714287, 0.35714287)
+texture = ExtResource("7_s0ako")
+
+[node name="BotonComplejidad" type="CheckButton" parent="Control/Avanzado" unique_id=98712346]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 35.0
+offset_right = 260.0
+offset_bottom = 60.0
+
+[node name="X_PrimerTablero" type="Sprite2D" parent="Control/Avanzado" unique_id=98712347]
+position = Vector2(30, 78)
+rotation = -2.9594276
+scale = Vector2(0.35714287, 0.35714287)
+texture = ExtResource("7_s0ako")
+
+[node name="BotonPrimerTablero" type="CheckButton" parent="Control/Avanzado" unique_id=98712348]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 64.0
+offset_right = 320.0
+offset_bottom = 89.0
+
+[node name="Jugar" type="Button" parent="Control" unique_id=98712349]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 428.0
+offset_right = 466.0
+offset_bottom = 483.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_colors/font_hover_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("4_bhk8w")
+theme_override_font_sizes/font_size = 32
+text = "Jugar"
+flat = true
+
+[node name="back" type="Button" parent="Control" unique_id=981481242]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = 135.0
+offset_bottom = 75.0
+flat = true
+
+[node name="Flecha" type="Sprite2D" parent="Control" unique_id=538353482]
+position = Vector2(73.6445, 41.625004)
+scale = Vector2(0.7087157, 0.7087156)
+texture = ExtResource("10_jiat2")

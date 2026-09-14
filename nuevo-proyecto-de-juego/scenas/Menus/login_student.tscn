@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://d2k2w4l1ulfp5"]
+
+[ext_resource type="Script" path="res://scripts/Menus/login_student.gd" id="1_student_login_gd"]
+[ext_resource type="Texture2D" uid="uid://7ve3uqfc5pgb" path="res://assets/newfondo.jpg" id="2_fondo"]
+[ext_resource type="Texture2D" uid="uid://d0i1h50x8if7o" path="res://assets/MenuPerzonalizado/FichaMediana.PNG" id="3_card"]
+[ext_resource type="FontFile" uid="uid://c126k7dlusnb2" path="res://extra/fuentes/ShonenPunk custom bold.ttf" id="4_font"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("4_font")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_status"]
+font = ExtResource("4_font")
+font_size = 18
+font_color = Color(1, 1, 1, 1)
+
+[node name="LoginStudent" type="Control" unique_id=521151091]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_student_login_gd")
+
+[node name="Fondo" type="TextureRect" parent="." unique_id=1579286635]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fondo")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="LoginPanel" type="Panel" parent="." unique_id=821946838]
+clip_contents = true
+custom_minimum_size = Vector2(450, 360)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -180.0
+offset_right = 225.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FichaMediana" type="Sprite2D" parent="LoginPanel" unique_id=1407724885]
+position = Vector2(225, 180)
+scale = Vector2(0.57, 0.43)
+texture = ExtResource("3_card")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoginPanel" unique_id=608685511]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 25.0
+offset_right = -30.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Title" type="Label" parent="LoginPanel/VBoxContainer" unique_id=1472344939]
+layout_mode = 2
+text = "Ingreso Estudiantes"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="UsernameInput" type="LineEdit" parent="LoginPanel/VBoxContainer" unique_id=98231718]
+layout_mode = 2
+placeholder_text = "Nombre de Usuario"
+
+[node name="PinInput" type="LineEdit" parent="LoginPanel/VBoxContainer" unique_id=83274910]
+layout_mode = 2
+placeholder_text = "PIN (6 dígitos)"
+secret = true
+secret_character = "*"
+
+[node name="BtnLogin" type="Button" parent="LoginPanel/VBoxContainer" unique_id=12893817]
+layout_mode = 2
+text = "Iniciar Sesión"
+
+[node name="BtnBack" type="Button" parent="LoginPanel/VBoxContainer" unique_id=83294819]
+layout_mode = 2
+text = "Volver"
+
+[node name="StatusLabel" type="Label" parent="." unique_id=91823719]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -100.0
+offset_right = 300.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_status")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://cgnlderos5uhn"]
+
+[ext_resource type="FontFile" uid="uid://c126k7dlusnb2" path="res://extra/fuentes/ShonenPunk custom bold.ttf" id="1_ang0m"]
+
+[resource]
+font = ExtResource("1_ang0m")
+font_color = Color(0, 0, 0, 1)

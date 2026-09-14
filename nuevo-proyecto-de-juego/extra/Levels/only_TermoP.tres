@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LevelConfig" format=3 uid="uid://bnf361c0gtq7a"]
+
+[ext_resource type="Script" uid="uid://c3xmfastldb5" path="res://scripts/Board/BoardConfig.gd" id="1_waa1k"]
+[ext_resource type="Script" uid="uid://41ke1iq8kjll" path="res://scripts/Board/LevelConfig.gd" id="2_yxnoo"]
+
+[resource]
+script = ExtResource("2_yxnoo")
+difficulty_level = 0
+custom_rng_seed = 1
+first_board_has_variants = true
+valid_variants = Array[int]([3])
+metadata/_custom_type_script = "uid://41ke1iq8kjll"

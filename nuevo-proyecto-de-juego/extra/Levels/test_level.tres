@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="LevelConfig" format=3 uid="uid://dn1jyuu7sfsp6"]
+
+[ext_resource type="Script" uid="uid://41ke1iq8kjll" path="res://scripts/Board/LevelConfig.gd" id="1_4nhtw"]
+
+[resource]
+script = ExtResource("1_4nhtw")
+total_boards = 1
+metadata/_custom_type_script = "uid://41ke1iq8kjll"

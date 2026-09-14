@@ -1,16 +1,62 @@
-# Godot 4+ specific ignores
+# ==========================================
+# Godot 4.x Ignores
+# ==========================================
 .godot/
-.nomedia
-
-# Godot-specific ignores
 .import/
+*.translation
+*.tmp
+
+# Godot Export / Credentials / Presets overrides
 export.cfg
 export_credentials.cfg
+*.pck
+*.apk
+*.aab
+*.exe
+*.zip
+*.tar.gz
+*.dmg
+*.iso
 
-# Imported translations (automatically generated from CSV files)
-*.translation
+# Local User Data (Godot)
+player.cfg
+auth_lockouts.cfg
+player_stats_*.json
 
-# Mono-specific ignores
-.mono/
-data_*/
-mono_crash.*.json
+# ==========================================
+# Node.js / Report Service API
+# ==========================================
+node_modules/
+pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+dist/
+build/
+
+# ==========================================
+# Secrets & Environment Files
+# ==========================================
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# ==========================================
+# IDE & System Ignores
+# ==========================================
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosv
+*.sln.docstates
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# Temporary Test Artifacts
+# ==========================================
+*.log

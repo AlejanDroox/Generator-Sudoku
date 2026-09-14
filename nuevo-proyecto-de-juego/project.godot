@@ -11,19 +11,31 @@ config_version=5
 [application]
 
 config/name="SudokuRogueLike"
+run/main_scene="uid://di5eplkixehgg"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-run/max_fps=60
 config/icon="res://icon.svg"
+
+[autoload]
+
+LocalDB="*uid://b4lgo206jcs5x"
+RemoteDB="*uid://dafckkhpd7c57"
+Global="*uid://x1qjhachanev"
+ScoreManager="*uid://c083hsnnpthdg"
+AuthManager="*res://scripts/Database/AuthManager.gd"
+SaveGameManager="*res://scripts/Database/SaveGameManager.gd"
 
 [debug]
 
-settings/stdout/print_gpu_profile=true
 gdscript/warnings/missing_await=1
+settings/stretch/scale=1.0
 
 [display]
 
 window/stretch/mode="canvas_items"
-window/stretch/scale=8.0
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [physics]
 
@@ -35,3 +47,4 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

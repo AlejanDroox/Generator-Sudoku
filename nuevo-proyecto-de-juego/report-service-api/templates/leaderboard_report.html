@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabla de Posiciones - Sudoku Samurai++</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+    
+    :root {
+      --primary: #4F46E5;
+      --primary-light: #EEF2F6;
+      --dark: #0F172A;
+      --light-bg: #F8FAFC;
+      --border: #E2E8F0;
+      --text: #334155;
+      --text-muted: #64748B;
+      --gold: #F59E0B;
+      --silver: #94A3B8;
+      --bronze: #B45309;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+      color: var(--text);
+      background-color: #FFFFFF;
+      margin: 0;
+      padding: 40px;
+      line-height: 1.5;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+
+    .brand h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0;
+      letter-spacing: -0.5px;
+    }
+
+    .brand span {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      margin-top: 4px;
+      display: block;
+    }
+
+    .report-meta {
+      text-align: right;
+    }
+
+    .report-meta h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--dark);
+      margin: 0;
+    }
+
+    .report-meta p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 4px 0 0 0;
+    }
+
+    .summary-card {
+      background-color: var(--light-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 20px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .summary-item {
+      text-align: center;
+      flex: 1;
+      min-width: 120px;
+    }
+
+    .summary-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .summary-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-top: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    th {
+      background-color: var(--light-bg);
+      border-bottom: 2px solid var(--border);
+      padding: 12px 10px;
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 10px;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .pos-cell {
+      font-weight: 700;
+      font-size: 14px;
+      width: 40px;
+      text-align: center;
+    }
+
+    .pos-1 { color: var(--gold); }
+    .pos-2 { color: var(--silver); }
+    .pos-3 { color: var(--bronze); }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 9999px;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+
+    .badge.facil { background-color: #D1FAE5; color: #065F46; }
+    .badge.medio { background-color: #FEF3C7; color: #92400E; }
+    .badge.dificil { background-color: #FEE2E2; color: #991B1B; }
+    .badge.extremo { background-color: #F3E8FF; color: #6B21A8; }
+    
+    .badge.var { background-color: var(--primary-light); color: var(--primary); }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding-top: 15px;
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="brand">
+      <h1>SUDOKU SAMURAI++</h1>
+      <span>Tabla de Posiciones Oficial</span>
+    </div>
+    <div class="report-meta">
+      <h2>Clasificación y Rankings</h2>
+      <p>Generado: <span id="report-date">--/--/----</span></p>
+    </div>
+  </div>
+
+  <div class="summary-card">
+    <div class="summary-item">
+      <span class="summary-label">Modo</span>
+      <div class="summary-value" id="filter-mode">Todos</div>
+    </div>
+    <div class="summary-item">
+      <span class="summary-label">Dificultad</span>
+      <div class="summary-value" id="filter-diff">Todas</div>
+    </div>
+    <div class="summary-item">
+      <span class="summary-label">Variantes Req.</span>
+      <div class="summary-value" id="filter-vars">Ninguna</div>
+    </div>
+    <div class="summary-item">
+      <span class="summary-label">Grupo</span>
+      <div class="summary-value" id="filter-group">Todos</div>
+    </div>
+    <div class="summary-item">
+      <span class="summary-label">Ordenado por</span>
+      <div class="summary-value" id="sort-by">Puntuación</div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align: center;">Pos.</th>
+        <th>Jugador</th>
+        <th>Grupo</th>
+        <th>Modo</th>
+        <th>Dificultad</th>
+        <th>Variantes Activas</th>
+        <th style="text-align: center;">Tableros</th>
+        <th>Puntaje</th>
+        <th>Tiempo</th>
+      </tr>
+    </thead>
+    <tbody id="leaderboard-table-body">
+      <!-- Se inyecta dinámicamente -->
+    </tbody>
+  </table>
+
+  <div class="footer">
+    <span>© 2026 Sudoku Samurai++</span>
+    <span>Clasificación Académica</span>
+  </div>
+
+  <script>
+    function initReport(data) {
+      document.getElementById('report-date').innerText = new Date(data.generatedAt || Date.now()).toLocaleDateString('es-ES', {
+        year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+      });
+
+      const varMap = {
+        'anti_knight': 'Anti-Caballo',
+        'thermo': 'Termo',
+        'killer': 'Jaulas Killer',
+        'arrow': 'Flecha'
+      };
+
+      document.getElementById('filter-mode').innerText = data.filters.modo === 'practice' ? 'Práctica' : (data.filters.modo === 'challenge' ? 'Desafío' : 'Todos');
+      document.getElementById('filter-diff').innerText = data.filters.dificultad ? (data.filters.dificultad.charAt(0).toUpperCase() + data.filters.dificultad.slice(1)) : 'Todas';
+      document.getElementById('filter-group').innerText = data.filters.grupo_codigo || 'Todos';
+      document.getElementById('sort-by').innerText = data.filters.ordenacion === 'boards' ? 'Más Tableros' : 'Puntuación';
+
+      if (Array.isArray(data.filters.variantes_activas) && data.filters.variantes_activas.length > 0) {
+        document.getElementById('filter-vars').innerText = data.filters.variantes_activas.map(v => varMap[v] || v).join(', ');
+      } else {
+        document.getElementById('filter-vars').innerText = 'Ninguna';
+      }
+
+      const tbody = document.getElementById('leaderboard-table-body');
+      tbody.innerHTML = '';
+
+      if (!data.leaderboard || data.leaderboard.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="9" style="text-align: center; color: var(--text-muted);">No hay registros en la clasificación que coincidan con los filtros.</td></tr>';
+      } else {
+        data.leaderboard.forEach((entry, i) => {
+          const tr = document.createElement('tr');
+          const pos = i + 1;
+          
+          let posClass = 'pos-cell';
+          if (pos <= 3) {
+            posClass += ` pos-${pos}`;
+          }
+
+          const name = entry.nombre || entry.usuario || 'N/A';
+          const group = entry.grupo_codigo || 'Sin Grupo';
+          
+          const gMins = Math.floor(entry.tiempo / 60);
+          const gSecs = Math.round(entry.tiempo % 60);
+          const timeStr = `${gMins}m ${gSecs}s`;
+
+          let varsHTML = 'Ninguna';
+          if (Array.isArray(entry.variantes_activas) && entry.variantes_activas.length > 0) {
+            varsHTML = entry.variantes_activas.map(v => `<span class="badge var">${varMap[v] || v}</span>`).join(' ');
+          }
+
+          const modoStr = entry.modo === 'practice' ? 'Práctica' : (entry.modo === 'challenge' ? 'Desafío' : entry.modo);
+
+          tr.innerHTML = `
+            <td class="${posClass}">${pos}</td>
+            <td style="font-weight: 600; color: var(--dark);">${name}</td>
+            <td><span class="badge">${group}</span></td>
+            <td>${modoStr}</td>
+            <td><span class="badge ${entry.dificultad.toLowerCase()}">${entry.dificultad}</span></td>
+            <td>${varsHTML}</td>
+            <td style="text-align: center; font-weight: 500;">${entry.tableros_completados}</td>
+            <td style="font-weight: 600; color: var(--primary);">${entry.puntuacion.toLocaleString()}</td>
+            <td>${timeStr}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+    }
+  </script>
+</body>
+</html>

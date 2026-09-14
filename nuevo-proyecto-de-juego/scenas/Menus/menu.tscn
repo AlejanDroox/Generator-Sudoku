@@ -1,0 +1,200 @@
+[gd_scene format=3 uid="uid://di5eplkixehgg"]
+
+[ext_resource type="Script" uid="uid://jbeysjlfvb47" path="res://scripts/menu.gd" id="1_menu_gd"]
+[ext_resource type="Texture2D" uid="uid://7ve3uqfc5pgb" path="res://assets/newfondo.jpg" id="1_pouha"]
+[ext_resource type="Texture2D" uid="uid://cht07nvuwxgrm" path="res://assets/titulo_spritesheet.png" id="2_5v5ul"]
+[ext_resource type="Script" uid="uid://b4lgo206jcs5x" path="res://scripts/Database/LocalDB.gd" id="4_2lweq"]
+[ext_resource type="Theme" uid="uid://bxavmwghbmaf6" path="res://assets/temas/PrincipalesMenus.tres" id="4_ld2iu"]
+[ext_resource type="Texture2D" uid="uid://d0i1h50x8if7o" path="res://assets/MenuPerzonalizado/FichaMediana.PNG" id="5_ficha"]
+[ext_resource type="FontFile" uid="uid://c126k7dlusnb2" path="res://extra/fuentes/ShonenPunk custom bold.ttf" id="6_font"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lweq"]
+atlas = ExtResource("2_5v5ul")
+region = Rect2(2304, 0, 768, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yp40e"]
+atlas = ExtResource("2_5v5ul")
+region = Rect2(1536, 0, 768, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0dil"]
+atlas = ExtResource("2_5v5ul")
+region = Rect2(0, 0, 768, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14o4m"]
+atlas = ExtResource("2_5v5ul")
+region = Rect2(768, 0, 768, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fdgtk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lweq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yp40e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0dil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14o4m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("6_font")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="Menu" type="Node2D" unique_id=1940579851]
+script = ExtResource("1_menu_gd")
+
+[node name="Newfondo" type="Sprite2D" parent="." unique_id=836314959]
+position = Vector2(577, 360)
+scale = Vector2(1.0621716, 1)
+texture = ExtResource("1_pouha")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=874287854]
+position = Vector2(571, 109.99999)
+scale = Vector2(0.53515625, 0.53515625)
+sprite_frames = SubResource("SpriteFrames_fdgtk")
+frame_progress = 0.3940294
+
+[node name="NameUser" type="Label" parent="." unique_id=182622814]
+offset_left = 24.0
+offset_top = 17.0
+offset_right = 249.0
+offset_bottom = 75.0
+theme = ExtResource("4_ld2iu")
+
+[node name="play" type="Button" parent="." unique_id=437450950]
+offset_left = 448.0
+offset_top = 280.0
+offset_right = 652.7222
+offset_bottom = 380.0
+theme = ExtResource("4_ld2iu")
+text = "Jugar"
+
+[node name="stats" type="Button" parent="." unique_id=1122334455]
+offset_left = 294.0
+offset_top = 400.0
+offset_right = 537.0
+offset_bottom = 500.0
+theme = ExtResource("4_ld2iu")
+text = "Estadisticas"
+
+[node name="leaderboard" type="Button" parent="." unique_id=1834904772]
+offset_left = 556.0
+offset_top = 406.0
+offset_right = 886.0
+offset_bottom = 506.0
+theme = ExtResource("4_ld2iu")
+theme_override_font_sizes/font_size = 26
+text = "Tabla de Clasificacion"
+
+[node name="how_to_play" type="Button" parent="." unique_id=1920384756]
+offset_left = 448.0
+offset_top = 521.0
+offset_right = 679.0
+offset_bottom = 601.0
+theme = ExtResource("4_ld2iu")
+text = "Como Jugar"
+
+[node name="student_login" type="Button" parent="." unique_id=987654322]
+offset_left = 822.0
+offset_top = 83.0
+offset_right = 1174.0
+offset_bottom = 157.0
+theme = ExtResource("4_ld2iu")
+text = "Estudiante"
+
+[node name="staff_login" type="Button" parent="." unique_id=987654321]
+offset_left = 845.0
+offset_top = 18.0
+offset_right = 1137.0
+offset_bottom = 76.0
+theme = ExtResource("4_ld2iu")
+text = "Administracion
+"
+
+[node name="Alerta" type="Label" parent="." unique_id=123456789]
+visible = false
+offset_left = 300.0
+offset_top = 310.0
+offset_right = 852.0
+offset_bottom = 350.0
+theme_override_colors/font_color = Color(0.890196, 0.14902, 0.14902, 1)
+theme_override_font_sizes/font_size = 18
+text = "Las instituciones no pueden jugar. Acceso solo administrativo."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="settings" type="Button" parent="." unique_id=987654324]
+offset_left = 998.0
+offset_top = 570.0
+offset_right = 1146.0
+offset_bottom = 636.0
+theme = ExtResource("4_ld2iu")
+text = "Ajustes"
+
+[node name="SettingsPanel" type="Panel" parent="." unique_id=987654325]
+offset_left = 351.0
+offset_top = 750.0
+offset_right = 801.0
+offset_bottom = 1110.0
+
+[node name="FichaMediana" type="Sprite2D" parent="SettingsPanel" unique_id=987654326]
+position = Vector2(225, 180)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("5_ficha")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPanel" unique_id=987654327]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Title" type="Label" parent="SettingsPanel/VBoxContainer" unique_id=987654328]
+layout_mode = 2
+text = "Ajustes"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="FontCheck" type="CheckButton" parent="SettingsPanel/VBoxContainer" unique_id=987654329]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.103743516, 0.10374353, 0.103743516, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+theme_override_font_sizes/font_size = 31
+theme_override_colors/button_checked_color = Color(0.2807388, 0.593615, 0.9501042, 1)
+text = "Fuente Neutra (Números)"
+
+[node name="TutorialFontCheck" type="CheckButton" parent="SettingsPanel/VBoxContainer" unique_id=987654331]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.103743516, 0.10374353, 0.103743516, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+theme_override_font_sizes/font_size = 31
+theme_override_colors/button_checked_color = Color(0.2807388, 0.593615, 0.9501042, 1)
+text = "Fuente Neutra (Tutorial)"
+
+[node name="BtnClose" type="Button" parent="SettingsPanel/VBoxContainer" unique_id=987654330]
+layout_mode = 2
+theme = ExtResource("4_ld2iu")
+text = "Cerrar"
+
+[node name="Node" type="Node" parent="." unique_id=96861704]
+script = ExtResource("4_2lweq")

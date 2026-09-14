@@ -1,0 +1,227 @@
+[gd_scene format=3 uid="uid://4ic4kfgtnnlh"]
+
+[ext_resource type="Script" uid="uid://8mq8iib7at6p" path="res://scripts/Board/SamuraiManager.gd" id="1_k61i0"]
+[ext_resource type="Resource" uid="uid://it2okyv20kp5" path="res://extra/Levels/test2.tres" id="2_0sdkk"]
+[ext_resource type="PackedScene" uid="uid://cnlv21ehm4dt4" path="res://scenas/camera_v1.tscn" id="2_r7cxu"]
+[ext_resource type="Texture2D" uid="uid://7ve3uqfc5pgb" path="res://assets/newfondo.jpg" id="3_0sdkk"]
+[ext_resource type="FontFile" uid="uid://c126k7dlusnb2" path="res://extra/fuentes/ShonenPunk custom bold.ttf" id="5_0sdkk"]
+[ext_resource type="PackedScene" uid="uid://b7454q26gce24" path="res://scenas/UI/button_number.tscn" id="5_f0ars"]
+[ext_resource type="Script" uid="uid://cejqfcmv65kcu" path="res://scripts/score.gd" id="5_lllgq"]
+[ext_resource type="Theme" uid="uid://bxavmwghbmaf6" path="res://assets/temas/PrincipalesMenus.tres" id="5_nkhsr"]
+[ext_resource type="Texture2D" uid="uid://8lsjd0wwai7c" path="res://assets/lapiz.PNG" id="6_t6880"]
+[ext_resource type="Texture2D" uid="uid://8regx7vmqk8p" path="res://assets/borrador.PNG" id="7_nkhsr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_apvbc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lllgq"]
+font = ExtResource("5_0sdkk")
+font_size = 46
+font_color = Color(0, 0, 0, 1)
+outline_size = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_f0ars"]
+font = ExtResource("5_0sdkk")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_nkhsr"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_apvbc"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_8ptnn"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_648ba"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_nq8hu"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_wtiu2"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_rmkeu"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_685to"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_5knwm"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_bq668"]
+
+[node name="SamuraiLevel" type="Node2D" unique_id=2066644362]
+script = ExtResource("1_k61i0")
+level_config = ExtResource("2_0sdkk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=656295345]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=2124120908]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control" unique_id=997071419]
+visibility_layer = 2
+layout_mode = 0
+offset_left = 444.0
+offset_top = 9.0
+offset_right = 711.0
+offset_bottom = 73.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_apvbc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/Panel" unique_id=361248872]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="score" type="Label" parent="CanvasLayer/Control/Panel/HBoxContainer" unique_id=1140192763]
+layout_mode = 2
+text = "Puntuacion: "
+label_settings = SubResource("LabelSettings_lllgq")
+script = ExtResource("5_lllgq")
+
+[node name="StreakLabel" type="Label" parent="CanvasLayer/Control/Panel/HBoxContainer" unique_id=214395564]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_f0ars")
+vertical_alignment = 2
+
+[node name="Volver" type="Button" parent="CanvasLayer/Control" unique_id=1928374650]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 11.0
+offset_right = 143.0
+offset_bottom = 52.0
+theme = ExtResource("5_nkhsr")
+text = "Volver"
+
+[node name="Verificar" type="Button" parent="CanvasLayer/Control" unique_id=969587298]
+layout_mode = 0
+offset_left = 955.0
+offset_top = 590.0
+offset_right = 1140.0
+offset_bottom = 631.0
+theme = ExtResource("5_nkhsr")
+text = "verificar"
+
+[node name="Buttom_numbers" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=1337654944]
+layout_mode = 0
+offset_top = 95.0
+offset_right = 75.0
+offset_bottom = 631.0
+size_flags_vertical = 0
+
+[node name="Button" parent="CanvasLayer/Control/Buttom_numbers" unique_id=1425210572 instance=ExtResource("5_f0ars")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_nkhsr")
+expand_icon = true
+number = "1"
+
+[node name="Button2" parent="CanvasLayer/Control/Buttom_numbers" unique_id=750093915 instance=ExtResource("5_f0ars")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_apvbc")
+expand_icon = true
+number = "2"
+
+[node name="Button3" parent="CanvasLayer/Control/Buttom_numbers" unique_id=584995823 instance=ExtResource("5_f0ars")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_8ptnn")
+expand_icon = true
+number = "3"
+
+[node name="Button4" parent="CanvasLayer/Control/Buttom_numbers" unique_id=400842897 instance=ExtResource("5_f0ars")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_648ba")
+expand_icon = true
+number = "4"
+
+[node name="Button5" parent="CanvasLayer/Control/Buttom_numbers" unique_id=145845717 instance=ExtResource("5_f0ars")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_nq8hu")
+expand_icon = true
+number = "5"
+
+[node name="Button6" parent="CanvasLayer/Control/Buttom_numbers" unique_id=838673272 instance=ExtResource("5_f0ars")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_wtiu2")
+expand_icon = true
+number = "6"
+
+[node name="Button7" parent="CanvasLayer/Control/Buttom_numbers" unique_id=602500112 instance=ExtResource("5_f0ars")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_rmkeu")
+expand_icon = true
+number = "7"
+
+[node name="Button8" parent="CanvasLayer/Control/Buttom_numbers" unique_id=1496493294 instance=ExtResource("5_f0ars")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_685to")
+expand_icon = true
+
+[node name="Button9" parent="CanvasLayer/Control/Buttom_numbers" unique_id=1065334447 instance=ExtResource("5_f0ars")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_5knwm")
+expand_icon = true
+number = "9"
+
+[node name="BoxContainer2" type="BoxContainer" parent="CanvasLayer/Control" unique_id=300082514]
+layout_mode = 0
+offset_left = 1092.0
+offset_top = 130.0
+offset_right = 1184.0
+offset_bottom = 246.0
+vertical = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/BoxContainer2" unique_id=1783031362]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Mode_pencil" parent="CanvasLayer/Control/BoxContainer2/VBoxContainer" unique_id=1721625797 instance=ExtResource("5_f0ars")]
+layout_mode = 2
+des_x = -25
+number = ""
+
+[node name="Lapiz" type="Sprite2D" parent="CanvasLayer/Control/BoxContainer2/VBoxContainer/Mode_pencil" unique_id=1048432562]
+position = Vector2(21.114868, 26.3125)
+scale = Vector2(0.22338708, 0.22338706)
+texture = ExtResource("6_t6880")
+
+[node name="Borrar" parent="CanvasLayer/Control/BoxContainer2/VBoxContainer" unique_id=746883475 instance=ExtResource("5_f0ars")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_bq668")
+des_x = -25
+number = ""
+
+[node name="Borrador" type="Sprite2D" parent="CanvasLayer/Control/BoxContainer2/VBoxContainer/Borrar" unique_id=1343288054]
+position = Vector2(20.10058, 23.375004)
+scale = Vector2(0.19969505, 0.19969507)
+texture = ExtResource("7_nkhsr")
+
+[node name="GameTimer" type="Timer" parent="." unique_id=-1293967295]
+wait_time = 9999.0
+one_shot = true
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=2082591332]
+repeat_size = Vector2(1279, 1142)
+repeat_times = 3
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="Parallax2D" unique_id=1990184675]
+texture_filter = 2
+rotation = 1.5707964
+texture = ExtResource("3_0sdkk")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" parent="." unique_id=2131848649 instance=ExtResource("2_r7cxu")]
+can_rotation = false
+min_zoom = 0.2
+
+[node name="BoardContainer" type="Node2D" parent="." unique_id=1928151561]
+
+[node name="FeedScore" type="Marker2D" parent="." unique_id=82808596]
+position = Vector2(1142, 117)

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c47yngpr3x6n1"]
+
+[ext_resource type="Script" uid="uid://ci38c670bkllk" path="res://tests/test_intensivo.gd" id="1_j8h4q"]
+
+[node name="TestIntensivo" type="Node2D" unique_id=5265711]
+script = ExtResource("1_j8h4q")
+iteraciones_por_configuracion = 10
+dificultades_a_probar = Array[int]([0])
+probar_variante_antiknight = false
+probar_variante_killer = false
+probar_variante_thermo = false
+probar_variante_arrow = false
+probar_multivariante = false

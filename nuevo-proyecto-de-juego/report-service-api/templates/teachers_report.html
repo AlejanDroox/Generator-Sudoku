@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reporte de Profesores - Sudoku Samurai++</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+    
+    :root {
+      --primary: #4F46E5;
+      --primary-light: #EEF2F6;
+      --dark: #0F172A;
+      --light-bg: #F8FAFC;
+      --border: #E2E8F0;
+      --text: #334155;
+      --text-muted: #64748B;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+      color: var(--text);
+      background-color: #FFFFFF;
+      margin: 0;
+      padding: 40px;
+      line-height: 1.5;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+
+    .brand h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0;
+      letter-spacing: -0.5px;
+    }
+
+    .brand span {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      margin-top: 4px;
+      display: block;
+    }
+
+    .report-meta {
+      text-align: right;
+    }
+
+    .report-meta h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--dark);
+      margin: 0;
+    }
+
+    .report-meta p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 4px 0 0 0;
+    }
+
+    .summary-card {
+      background-color: var(--light-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 20px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .summary-item {
+      text-align: center;
+    }
+
+    .summary-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .summary-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-top: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    th {
+      background-color: var(--light-bg);
+      border-bottom: 2px solid var(--border);
+      padding: 12px;
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      border-bottom: 1px solid var(--border);
+      padding: 12px;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 600;
+      background-color: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding-top: 15px;
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="brand">
+      <h1>SUDOKU SAMURAI++</h1>
+      <span>Control de Personal Docente</span>
+    </div>
+    <div class="report-meta">
+      <h2>Reporte de Profesores</h2>
+      <p>Generado: <span id="report-date">--/--/----</span></p>
+    </div>
+  </div>
+
+  <div class="summary-card">
+    <div class="summary-item">
+      <span class="summary-label">Institución</span>
+      <div class="summary-value" id="inst-name">Cargando...</div>
+    </div>
+    <div class="summary-item">
+      <span class="summary-label">Total Profesores</span>
+      <div class="summary-value" id="total-teachers">0</div>
+    </div>
+    <div class="summary-item">
+      <span class="summary-label">Total Grupos</span>
+      <div class="summary-value" id="total-groups">0</div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre del Profesor</th>
+        <th>Correo Electrónico</th>
+        <th>Grupos Asignados</th>
+        <th>Estudiantes por Grupo</th>
+      </tr>
+    </thead>
+    <tbody id="teachers-table-body">
+      <!-- Se inyecta dinámicamente -->
+    </tbody>
+  </table>
+
+  <div class="footer">
+    <span>© 2026 Sudoku Samurai++</span>
+    <span>Reporte Administrativo</span>
+  </div>
+
+  <script>
+    function initReport(data) {
+      document.getElementById('report-date').innerText = new Date(data.generatedAt || Date.now()).toLocaleDateString('es-ES', {
+        year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+      });
+      document.getElementById('inst-name').innerText = data.institution.nombre || 'N/A';
+      document.getElementById('total-teachers').innerText = data.teachers.length;
+
+      let groupCount = 0;
+      const tbody = document.getElementById('teachers-table-body');
+      tbody.innerHTML = '';
+
+      if (!data.teachers || data.teachers.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; color: var(--text-muted);">No hay profesores registrados.</td></tr>';
+      } else {
+        data.teachers.forEach(t => {
+          const tr = document.createElement('tr');
+          
+          let gruposHTML = 'Ninguno';
+          let estudiantesHTML = '0';
+          
+          if (t.grupos && t.grupos.length > 0) {
+            groupCount += t.grupos.length;
+            gruposHTML = t.grupos.map(g => `<span class="badge">${g.codigo_grupo}</span>`).join(' ');
+            estudiantesHTML = t.grupos.map(g => `<b>${g.codigo_grupo}:</b> ${g.estudiantes_count} estudiantes`).join('<br>');
+          }
+
+          tr.innerHTML = `
+            <td style="font-weight: 600; color: var(--dark);">${t.nombre}</td>
+            <td>${t.email || 'N/A'}</td>
+            <td>${gruposHTML}</td>
+            <td>${estudiantesHTML}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+      document.getElementById('total-groups').innerText = groupCount;
+    }
+  </script>
+</body>
+</html>

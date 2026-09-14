@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://b7454q26gce24"]
+
+[ext_resource type="Script" uid="uid://cgfl83n6e8gfy" path="res://scripts/UI/button_numbers.gd" id="1_sg2ps"]
+[ext_resource type="Texture2D" uid="uid://bwxowxq0yhwm7" path="res://assets/BotonNumbers.PNG" id="2_tpkmt"]
+[ext_resource type="FontFile" uid="uid://c126k7dlusnb2" path="res://extra/fuentes/ShonenPunk custom bold.ttf" id="3_tpkmt"]
+[ext_resource type="Texture2D" uid="uid://baxdvj7570l1" path="res://assets/icons/knight_idle0000.png" id="4_djwj3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_djwj3"]
+font = ExtResource("3_tpkmt")
+font_size = 28
+font_color = Color(0, 0, 0, 1)
+
+[node name="CheckButton" type="CheckButton" unique_id=1425210572]
+custom_minimum_size = Vector2(75, 56.25)
+offset_right = 75.0
+offset_bottom = 56.25
+script = ExtResource("1_sg2ps")
+
+[node name="BotonNumbers" type="Sprite2D" parent="." unique_id=1245425454]
+position = Vector2(37, 26.999996)
+scale = Vector2(0.1701031, 0.17010312)
+texture = ExtResource("2_tpkmt")
+
+[node name="Container" type="HBoxContainer" parent="." unique_id=1337255565]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 72.64179
+offset_bottom = 54.0
+alignment = 2
+
+[node name="Label" type="Label" parent="Container" unique_id=1417593783]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_djwj3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="knight" type="Sprite2D" parent="." unique_id=696876605]
+visible = false
+position = Vector2(35.75, 28.25)
+scale = Vector2(0.08300782, 0.07714844)
+texture = ExtResource("4_djwj3")
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]

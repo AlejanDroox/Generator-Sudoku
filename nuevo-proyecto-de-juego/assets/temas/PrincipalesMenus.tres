@@ -1,0 +1,25 @@
+[gd_resource type="Theme" format=3 uid="uid://bxavmwghbmaf6"]
+
+[ext_resource type="Texture2D" uid="uid://bwxowxq0yhwm7" path="res://assets/BotonNumbers.PNG" id="1_eev8n"]
+[ext_resource type="FontFile" uid="uid://c126k7dlusnb2" path="res://extra/fuentes/ShonenPunk custom bold.ttf" id="2_y1203"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eev8n"]
+texture = ExtResource("1_eev8n")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fpifx"]
+texture = ExtResource("1_eev8n")
+expand_margin_left = 25.0
+expand_margin_top = 15.0
+expand_margin_right = 25.0
+expand_margin_bottom = 15.0
+
+[resource]
+default_font = ExtResource("2_y1203")
+default_font_size = 36
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.15294118, 0.15294118, 0.15294118, 0.8627451)
+Button/constants/line_spacing = 4
+Button/styles/hover = SubResource("StyleBoxTexture_eev8n")
+Button/styles/normal = SubResource("StyleBoxTexture_fpifx")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/fonts/font = ExtResource("2_y1203")
